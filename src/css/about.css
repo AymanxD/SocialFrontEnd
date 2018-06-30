@@ -1,0 +1,15 @@
+
+/* About */
+
+#about{
+    border: 0.1em solid #F2937E;
+    width: 50%;
+    font-size: 1em;
+    margin-top: 6em;
+    margin-bottom: 8.5em;
+    padding: 3em;
+}
+
+#aboutPage{
+    position: relative;
+}
