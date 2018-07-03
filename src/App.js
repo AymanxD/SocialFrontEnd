@@ -5,6 +5,9 @@ import Home from './js/Home';
 import About from './js/about';
 import Footer from './js/footer';
 import EventsList from './js/eventsList';
+import Register from './js/Register';
+import Login from './js/Login';
+
 
 
 class App extends Component {
@@ -18,6 +21,8 @@ class App extends Component {
                   <Route exact path="/" component={Home}/>
                   <Route path="/about" component={About}/>
                   <Route path="/events" component={EventsList}/>
+                  <Route path="/Register" component={Register}/>
+                  <Route path="/Login" component={Login}/>
               </div>
               <Footer/>
             </div>
