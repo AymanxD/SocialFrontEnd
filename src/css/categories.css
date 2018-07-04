@@ -1,0 +1,32 @@
+
+/* Categories */
+
+.popularCards{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 25% 25% 25% 25%;
+    grid-row-gap: 1em;
+    margin: 5%;
+}
+
+@media(max-width: 1000px){
+    .popularCards{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 25% 25% 25% 25%;
+        grid-row-gap: 1em;
+        margin: 5%;
+    }
+
+
+@media(max-width: 500px){
+    .popularCards{
+
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
+        float: right;
+    }
+
+    }
+}
