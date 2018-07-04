@@ -10,6 +10,7 @@ export default class Navigation extends Component {
     render() {
         return (
             <div className="Navi">
+                <div className="container">
                 <Link to="/"><img src={logo} className="Logo" alt="logo" /></Link>
                 <Nav bsStyle="pills" className="Navi">
                     <NavItem eventKey={1} href="/" className="NavItem">
@@ -21,6 +22,14 @@ export default class Navigation extends Component {
                     <NavItem eventKey={1} href="/Register">
                         Sign Up
                     </NavItem>
+
+                    <NavItem eventKey={1} href="/CreateEvent">
+                        Create Event
+                    </NavItem>
+                    <NavItem eventKey={3} href="/Profile">
+                        Profile
+                    </NavItem>
+
                     <NavItem eventKey={2} href="/about">
                         About
                     </NavItem>
@@ -28,6 +37,7 @@ export default class Navigation extends Component {
                         Profile
                     </NavItem>
                 </Nav>
+                </div>
             </div>
         );
     }
