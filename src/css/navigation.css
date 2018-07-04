@@ -5,6 +5,7 @@
     font-size: 1.25em;
     display: flex;
     justify-content: space-between;
+   
 }
 
 .nav-pills>li>a:hover{
@@ -18,4 +19,8 @@
     padding-bottom: 0.625em;
     padding-left: 0.938em;
     float:left;
+}
+
+.nav-pills>li>a {
+    color: #f7995b;
 }

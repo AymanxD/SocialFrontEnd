@@ -1,9 +1,24 @@
-.formev{
+.formev {
   margin: 6em;
+  margin-top: 0.5em;
  }
  .container {
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+}
+
+.fieldheads {
+
+	color: orange;
+}
+
+.title{
+	padding-bottom: 1em;
+}
+
+.button {
+	background-color: orange;
+	color : white;
 }
