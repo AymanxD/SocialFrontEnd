@@ -9,31 +9,32 @@ import logo from './../images/logo.png';
 export default class Navigation extends Component {
     render() {
         return (
-            <Navbar className="navigate" collapseOnSelect>
-                <Navbar.Header>
-                        <Link to="/"><img src={logo} className="Logo" alt="logo" /></Link>
-                    <Navbar.Toggle />
-                </Navbar.Header>
-                <Navbar.Collapse>
-                    <Nav bsStyle="pills" className="Navi" pullRight>
-                        <NavItem eventKey={1} href="/" className="NavItem">
-                            Home
-                        </NavItem>
-                        <NavItem eventKey={1} href="/">
-                            Sign in
-                        </NavItem>
-                        <NavItem eventKey={1} href="/">
-                            Sign Up
-                        </NavItem>
-                        <NavItem eventKey={2} href="/about">
-                            About
-                        </NavItem>
-                        <NavItem eventKey={3} href="/Profile">
-                            Profile
-                        </NavItem>
-                    </Nav>
-                </Navbar.Collapse>
-            </Navbar>
+            <div className="Navi">
+                <div className="container">
+                <Link to="/"><img src={logo} className="Logo" alt="logo" /></Link>
+                <Nav bsStyle="pills" className="Navi">
+                    <NavItem eventKey={1} href="/" className="NavItem">
+                        Home
+                    </NavItem>
+                    <NavItem eventKey={1} href="/Login">
+                        Sign in
+                    </NavItem>
+                    <NavItem eventKey={1} href="/Register">
+                        Sign Up
+                    </NavItem>
+
+                    <NavItem eventKey={1} href="/CreateEvent">
+                        Create Event
+                    </NavItem>
+                    <NavItem eventKey={2} href="/about">
+                        About
+                    </NavItem>
+                    <NavItem eventKey={3} href="/Profile">
+                        Profile
+                    </NavItem>
+                </Nav>
+                </div>
+            </div>
         );
     }
 }
