@@ -24,4 +24,14 @@ text-align: center;
 
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
     background-color: #F2937E;
+
+.btn_primary{
+	background-color: #fcb025;
+	color: white;
+
+}
+
+.btn_primary:hover{
+	background-color:#efa928;
+	color: white;
 }

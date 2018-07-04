@@ -22,14 +22,19 @@ export default class Navigation extends Component {
                     <NavItem eventKey={1} href="/Register">
                         Sign Up
                     </NavItem>
+
                     <NavItem eventKey={1} href="/CreateEvent">
                         Create Event
                     </NavItem>
                     <NavItem eventKey={3} href="/Profile">
                         Profile
                     </NavItem>
+
                     <NavItem eventKey={2} href="/about">
                         About
+                    </NavItem>
+                    <NavItem eventKey={3} href="/Profile">
+                        Profile
                     </NavItem>
                 </Nav>
                 </div>

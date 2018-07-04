@@ -6,12 +6,15 @@ import Categories from './js/categories';
 import About from './js/about';
 import Footer from './js/footer';
 import EventsList from './js/eventsList';
+import Register from './js/Register';
+import Login from './js/Login';
 import Profile from './js/Profile';
 import CreateEvent from './js/CreateEvent';
 import Event_Details from './js/Event_Details';
 import Mapview from './js/Map_View';
 import Login from './js/Login';
 import Register from './js/Register';
+
 
 
 class App extends Component {
@@ -32,6 +35,9 @@ class App extends Component {
                   <Route exact path="/Categories" component={Categories}/>
                   <Route path="/Register" component={Register}/>
                   <Route path="/Login" component={Login}/>
+                  <Route path="/Register" component={Register}/>
+                  <Route path="/Login" component={Login}/>
+                  <Route exact path="/Categories" component={Categories}/>
               </div>
               <Footer/>
             </div>

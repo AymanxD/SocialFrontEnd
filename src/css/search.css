@@ -29,4 +29,14 @@
 
 .btn-warning{
 background-color: #fcb025;
+
+.btn_category{
+background-color: #fcb025;
+color: white;
+}
+
+.btn_category:hover{
+	background-color:#efa928;
+	color: white;
+
 }
