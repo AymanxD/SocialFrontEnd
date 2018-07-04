@@ -4,6 +4,7 @@ import Navigation from './Navigation'
 import Card from './card';
 import Categoires from './categories';
 import Search from './search';
+import {Link} from 'react-router-dom';
 import image1 from './../images/image1.jpg'
 import image2 from './../images/image2.jpg'
 import image3 from './../images/image3.jpg'
@@ -37,7 +38,9 @@ export default class Home extends Component{
                 <Search/>
 
                 <div className="popularCards">
-                    <Card image={image1} event={"Food"} description={"Popular Event"}/>
+                    <Link to="/Event_Details">
+                        <Card image={image1} event={"Food"} description={"Popular Event"}/>
+                    </Link>
                     <Card image={image2} event={"Outdoors"} description={"Popular Event"}/>
                     <Card image={image3} event={"Technology"} description={"Popular Event"}/>
                     <Card image={image4} event={"Community"} description={"Popular Event"}/>
