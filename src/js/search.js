@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Link } from 'react';
 import './../css/search.css';
 import {FormGroup, FormControl, ControlLabel} from 'react-bootstrap';
 
@@ -67,6 +67,9 @@ export default class Search extends Component {
                         placeholder="Search for an Event!"
                     />
                     <FormControl.Feedback />
+                    <a href="/Categories"><button type="button" class="btn btn-warning pop" data-container="body" 
+                    data-toggle="popover" data-placement="bottom"
+  					data-original-title="" title="">Categories</button></a>
                 </FormGroup>
                 <p className="locationLabel">{this.state.city}, {this.state.province}</p>
             </div>

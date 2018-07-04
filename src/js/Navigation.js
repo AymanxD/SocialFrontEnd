@@ -18,17 +18,14 @@ export default class Navigation extends Component {
                 </Navbar.Header>
                 <Navbar.Collapse>
                 <Nav bsStyle="pills" className="Navi">
-                    <NavItem eventKey={1} href="/">
+                    <NavItem eventKey={1} href="/" className="NavItem">
                         Home
                     </NavItem>
-                    <NavItem eventKey={1} href="/">
+                    <NavItem eventKey={1} href="/Login">
                         Sign in
                     </NavItem>
-                    <NavItem eventKey={1} href="/">
+                    <NavItem eventKey={1} href="/Register">
                         Sign Up
-                    </NavItem>
-                    <NavItem eventKey={1} href="/CreateEvent">
-                        Create Event
                     </NavItem>
                     <NavItem eventKey={2} href="/about">
                         About

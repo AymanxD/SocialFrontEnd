@@ -13,12 +13,12 @@ export default class CE extends Component{
 		<div>
 		  <Navigation />	
 			<div className="formev container">
-				<h2>Create An Event</h2>
+				<h2 className="fieldheads title">Create An Event</h2>
 				<form>
 				  <div className="form-group">
 				  	<div className="row">
 				  		<div className="col-lg-3">
-						    <label for="Event_Name">Event Title:</label>
+						    <label for="Event_Name" >Event Title:</label>
 						</div>
 						<div className="col-lg-9">
 						    <input type="text" className="form-control" id="Event_Name" />
@@ -65,7 +65,7 @@ export default class CE extends Component{
 						    <label for="UP">Upload Photos:</label>
 						</div>
 						<div className="col-lg-9">
-						    <input type="file" id="UP" />
+						    <input type="file" id="UP" className="btn button"/>
 					    </div>
 					</div>   
 				  </div>
@@ -73,7 +73,7 @@ export default class CE extends Component{
 		</div>
 		<div className="formev container">	
 				<form>	  
-				  <h2>Contact Details</h2>	
+				  <h2 className="fieldheads title">Contact Details</h2>	
 				  <div className="form-group">
 				  	<div className="row">
 				  		<div className="col-lg-3">
@@ -109,7 +109,7 @@ export default class CE extends Component{
 				  <div class="checkbox">
 				    <label><input type="checkbox" /> Remember me</label>
 				  </div>
-				  <button type="submit" className="btn btn-success">Submit</button>
+				  <button type="submit" className="btn button">Submit</button>
 				</form>
 			</div>
 		</div>	
