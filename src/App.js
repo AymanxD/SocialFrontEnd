@@ -12,8 +12,6 @@ import Profile from './js/Profile';
 import CreateEvent from './js/CreateEvent';
 import Event_Details from './js/Event_Details';
 import Mapview from './js/Map_View';
-import Login from './js/Login';
-import Register from './js/Register';
 
 
 
