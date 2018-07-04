@@ -13,7 +13,6 @@ import image6 from './../images/image6.jpg'
 import image7 from './../images/image7.jpg'
 import image8 from './../images/image8.jpg'
 
-
 export default class Home extends Component{
 
     componentDidMount(){
