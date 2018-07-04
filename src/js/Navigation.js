@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './../css/navigation.css';
 import {Link} from 'react-router-dom';
-import {Nav, NavItem} from 'react-bootstrap';
+import {Nav, NavItem, Navbar} from 'react-bootstrap';
 import logo from './../images/logo.png';
 
 
@@ -10,7 +10,13 @@ export default class Navigation extends Component {
     render() {
         return (
             <div className="Navi">
+            <Navbar.Header>
+                <Navbar.Brand>
                 <Link to="/"><img src={logo} className="Logo" alt="logo" /></Link>
+                </Navbar.Brand>
+                <Navbar.Toggle />
+                </Navbar.Header>
+                <Navbar.Collapse>
                 <Nav bsStyle="pills" className="Navi">
                     <NavItem eventKey={1} href="/">
                         Home
@@ -31,6 +37,7 @@ export default class Navigation extends Component {
                         Profile
                     </NavItem>
                 </Nav>
+                </Navbar.Collapse>
             </div>
         );
     }
