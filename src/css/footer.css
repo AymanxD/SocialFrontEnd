@@ -5,4 +5,7 @@
     background-color: #f7995b;
     color: white;
     text-align: center;
+    bottom:0;
+    position: relative;
+    display: block;
 }
