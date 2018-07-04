@@ -10,6 +10,8 @@ import Register from './js/Register';
 import Login from './js/Login';
 import Profile from './js/Profile';
 import CreateEvent from './js/CreateEvent';
+import Event_Details from './js/Event_Details';
+import Mapview from './js/Map_View';
 
 
 
@@ -25,6 +27,12 @@ class App extends Component {
                   <Route path="/about" component={About}/>
                   <Route path="/profile" component={Profile}/>
                   <Route path="/events" component={EventsList}/>
+                  <Route path="/CreateEvent" component={CreateEvent}/>
+                  <Route path="/Event_Details" component={Event_Details}/>
+                  <Route  path="/Map" component={Mapview}/>
+                  <Route exact path="/Categories" component={Categories}/>
+                  <Route path="/Register" component={Register}/>
+                  <Route path="/Login" component={Login}/>
                   <Route path="/Register" component={Register}/>
                   <Route path="/Login" component={Login}/>
                   <Route exact path="/Categories" component={Categories}/>

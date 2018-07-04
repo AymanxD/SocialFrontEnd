@@ -4,13 +4,13 @@
     padding: 1%;
     font-size: 1.25em;
     display: flex;
-    justify-content: space-between;
-   
+    justify-content: space-evenly;
 }
 
-.nav-pills>li>a:hover{
-    background-color: #FFC04D;
-    color: white;
+.navigate{
+    background: inherit;
+    flex: 0 0 100%;
+    border-width: 0em;
 }
 
 .Logo{
@@ -21,6 +21,18 @@
     float:left;
 }
 
-.nav-pills>li>a {
+.navbar-default .navbar-nav>li>a {
     color: #f7995b;
+}
+
+.navbar-default .navbar-nav>li>a:hover{
+    background-color: #FFC04D;
+    color: white;
+}
+
+@media (max-width: 767px) {
+    .Navi{
+        display: flex;
+        flex-direction: column;
+    }
 }
