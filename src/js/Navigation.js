@@ -10,6 +10,7 @@ export default class Navigation extends Component {
     render() {
         return (
             <div className="Navi">
+                <div className="container">
                 <Link to="/"><img src={logo} className="Logo" alt="logo" /></Link>
                 <Nav bsStyle="pills" className="Navi">
                     <NavItem eventKey={1} href="/" className="NavItem">
@@ -28,6 +29,7 @@ export default class Navigation extends Component {
                         About
                     </NavItem>
                 </Nav>
+                </div>
             </div>
         );
     }

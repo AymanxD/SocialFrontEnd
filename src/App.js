@@ -6,6 +6,8 @@ import About from './js/about';
 import Footer from './js/footer';
 import EventsList from './js/eventsList';
 import CreateEvent from './js/CreateEvent';
+import Event_Details from './js/Event_Details';
+import Mapview from './js/Map_View';
 
 
 class App extends Component {
@@ -20,6 +22,8 @@ class App extends Component {
                   <Route path="/about" component={About}/>
                   <Route path="/events" component={EventsList}/>
                   <Route path="/CreateEvent" component={CreateEvent}/>
+                  <Route path="/Event_Details" component={Event_Details}/>
+                  <Route  path="/Map" component={Mapview}/>
               </div>
               <Footer/>
             </div>
