@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import './../css/Home.css';
+import './../css/categories.css';
 import Navigation from './Navigation'
 import Card from './card';
-import Categoires from './categories';
 import Search from './search';
 import image1 from './../images/image1.jpg'
 import image2 from './../images/image2.jpg'
@@ -13,7 +12,8 @@ import image6 from './../images/image6.jpg'
 import image7 from './../images/image7.jpg'
 import image8 from './../images/image8.jpg'
 
-export default class Home extends Component{
+
+export default class categories extends Component{
 
     componentDidMount(){
 
@@ -35,16 +35,16 @@ export default class Home extends Component{
                 <Navigation/>
 
                 <Search/>
-
+                <h2> Categories</h2>                
                 <div className="popularCards">
-                    <Card image={image1} event={"Food"} description={"Popular Event"}/>
-                    <Card image={image2} event={"Outdoors"} description={"Popular Event"}/>
-                    <Card image={image3} event={"Technology"} description={"Popular Event"}/>
-                    <Card image={image4} event={"Community"} description={"Popular Event"}/>
-                    <Card image={image5} event={"Fashion"} description={"Popular Event"}/>
-                    <Card image={image6} event={"Travel"} description={"Popular Event"}/>
-                    <Card image={image7} event={"Photography"} description={"Popular Event"}/>
-                    <Card image={image8} event={"Art"} description={"Popular Event"}/>
+                    <Card image={image1} event={"Food Events"}/>
+                    <Card image={image2} event={"Outdoor Events"} />
+                    <Card image={image3} event={"Technological Events"} />
+                    <Card image={image4} event={"Community Events"} />
+                    <Card image={image5} event={"Fashion Events"} />
+                    <Card image={image6} event={"Travel Events"} />
+                    <Card image={image7} event={"Photography Events"} />
+                    <Card image={image8} event={"Art Events"} />
                 </div>
             </div>
         );

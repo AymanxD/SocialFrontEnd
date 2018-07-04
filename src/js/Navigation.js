@@ -12,7 +12,7 @@ export default class Navigation extends Component {
             <div className="Navi">
                 <Link to="/"><img src={logo} className="Logo" alt="logo" /></Link>
                 <Nav bsStyle="pills" className="Navi">
-                    <NavItem eventKey={1} href="/">
+                    <NavItem eventKey={1} href="/" className="NavItem">
                         Home
                     </NavItem>
                     <NavItem eventKey={1} href="/Login">
@@ -23,6 +23,9 @@ export default class Navigation extends Component {
                     </NavItem>
                     <NavItem eventKey={2} href="/about">
                         About
+                    </NavItem>
+                    <NavItem eventKey={3} href="/Profile">
+                        Profile
                     </NavItem>
                 </Nav>
             </div>
