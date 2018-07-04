@@ -61,15 +61,14 @@ export default class Search extends Component {
                     controlId="formBasicText"
                     id="form"
                 >
-                    <ControlLabel className="searchLabel">Search:</ControlLabel>
                     <FormControl
                         className="search"
                         type="text"
                         placeholder="Search for an Event!"
                     />
                     <FormControl.Feedback />
-                    <p className="locationLabel">{this.state.city}, {this.state.province}</p>
                 </FormGroup>
+                <p className="locationLabel">{this.state.city}, {this.state.province}</p>
             </div>
         );
     }
