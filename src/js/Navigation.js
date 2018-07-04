@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './../css/navigation.css';
 import {Link} from 'react-router-dom';
-import {Nav, NavItem} from 'react-bootstrap';
+import {Nav, NavItem, Navbar} from 'react-bootstrap';
 import logo from './../images/logo.png';
 
 
