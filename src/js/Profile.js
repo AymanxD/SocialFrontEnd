@@ -17,8 +17,6 @@ class Profile extends Component{
 
                             <img id="avatar" className="img-responsive" src={require('../images/profile.jpg')} alt="profile img" />
 
-                            <img id="avatar" className="img-responsive" src={require('./../images/profile.jpg')} alt="profile img" />
-
                             </div>
                         </div>
                         <hr>
@@ -73,16 +71,15 @@ class Profile extends Component{
                                 <div className="col-xs-3 col-sm-3 col-md-3">
                                     <div className="form-group" id="text-al">
 
-                                    <button type="button" class="btn btn-block btn-lg btn-primary">Edit</button>
-
                                     <button type="button" class="btn btn-block btn-lg btn_primary">Edit</button>
+
 
                                     </div>
                                 </div>
                                 <div className="col-xs-3 col-sm-3 col-md-3">
                                     <div className="form-group" id="text-al">
-                                    <input type="button" class="btn btn-block btn-lg btn-primary" value="Back" onclick="location.href='#'"/>
                                     <input type="button" class="btn btn-block btn-lg btn_primary" value="Back" onclick="location.href='#'"/>
+                                    
                                     </div>
                                 </div>
                                 </div>
