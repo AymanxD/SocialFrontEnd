@@ -67,7 +67,7 @@ export default class Search extends Component {
                         placeholder="Search for an Event!"
                     />
                     <FormControl.Feedback />
-                    <a href="/Categories"><button type="button" class="btn btn-danger pop" data-container="body" 
+                    <a href="/Categories"><button type="button" class="btn btn_category pop" data-container="body" 
                     data-toggle="popover" data-placement="bottom"
   					data-original-title="" title="">Categories</button></a>
                 </FormGroup>

@@ -26,3 +26,14 @@
     width:50%;
     border-color: #F2937E;
 }
+
+.btn_category{
+background-color: #fcb025;
+color: white;
+}
+
+.btn_category:hover{
+	background-color:#efa928;
+	color: white;
+
+}
