@@ -1,0 +1,27 @@
+#avatar{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    position: relative;
+    
+}
+#text-al{
+text-align: center;
+}
+
+#profilePage{
+    position: relative;
+}
+
+#profile{
+    border: 0.1em solid #F2937E;
+    width: 70%;
+    font-size: 1em;
+    margin-bottom: 5em;
+    padding: 3em;
+
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #F2937E;
+}
