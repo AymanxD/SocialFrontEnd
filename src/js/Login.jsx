@@ -24,7 +24,7 @@ export default class Signin extends React.Component {
           <FormControl  type="password" placeholder="Enter Password" />
           <FormControl.Feedback />
         </FormGroup>
-        <Button type="submit" bsStyle="warning" bsSize="large" block>Login</Button>
+        <Button type="submit" className="button_col" bsSize="large" block>Login</Button>
       </form>
 
          </div>
