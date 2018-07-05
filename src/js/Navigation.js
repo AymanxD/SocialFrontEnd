@@ -9,6 +9,7 @@ import logo from './../images/logo.png';
 export default class Navigation extends Component {
     render() {
         return (
+<<<<<<< HEAD
             <div className="Navi">
                 <div className="container">
                 <Link to="/"><img src={logo} className="Logo" alt="logo" /></Link>
