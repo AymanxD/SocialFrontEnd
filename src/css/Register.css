@@ -12,3 +12,22 @@
     position: relative;
     margin-bottom: 8.5em;
 }
+
+
+.button_col
+{
+background-color: #FFC04D;
+color : white;
+}
+
+.button_col:hover{
+background-color: #efa928;
+color : white;
+}
+
+#sizedate
+{
+width : 510px;
+
+
+}

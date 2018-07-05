@@ -4,6 +4,7 @@ import Navigation from './Navigation'
 import Card from './card';
 import Categoires from './categories';
 import Search from './search';
+import {Link} from 'react-router-dom';
 import image1 from './../images/image1.jpg'
 import image2 from './../images/image2.jpg'
 import image3 from './../images/image3.jpg'
@@ -37,14 +38,30 @@ export default class Home extends Component{
                 <Search/>
 
                 <div className="popularCards">
-                    <Card image={image1} event={"Food"} description={"Popular Event"}/>
+                    <Link to="/Event_Details">
+                        <Card image={image1} event={"Food"} description={"Popular Event"}/>
+                    </Link>
+                    <Link to="/Event_Details">
                     <Card image={image2} event={"Outdoors"} description={"Popular Event"}/>
+                    </Link>
+                    <Link to="/Event_Details">
                     <Card image={image3} event={"Technology"} description={"Popular Event"}/>
+                    </Link>
+                    <Link to="/Event_Details">
                     <Card image={image4} event={"Community"} description={"Popular Event"}/>
+                    </Link>
+                    <Link to="/Event_Details">
                     <Card image={image5} event={"Fashion"} description={"Popular Event"}/>
+                    </Link>
+                    <Link to="/Event_Details">
                     <Card image={image6} event={"Travel"} description={"Popular Event"}/>
+                    </Link>
+                    <Link to="/Event_Details">
                     <Card image={image7} event={"Photography"} description={"Popular Event"}/>
+                    </Link>
+                    <Link to="/Event_Details">
                     <Card image={image8} event={"Art"} description={"Popular Event"}/>
+                    </Link>
                 </div>
             </div>
         );
