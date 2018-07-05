@@ -41,11 +41,13 @@ constructor (props) {
           <br />
           <FormControl  type="text" placeholder="Enter Name" />
           <br />
-         <DatePicker  id="sizedate"className="form-control " selected={this.state.startDate} onChange={this.handleChange}/>  
-		<br/>   
-           <FormControl  type="text" placeholder="Location" />
+         <DatePicker  id="sizedate"className="form-control " selected={this.state.startDate} onChange={this.handleChange}/>  
+		<br/>  
+           <FormControl  type="text" placeholder="City" />
           <br />
-           <FormControl  type="text" placeholder="Interest" />
+           <FormControl  type="text" placeholder="Province" />
+          <br />
+           <FormControl  type="text" placeholder="Interest" />
           <br />
           <FormControl.Feedback />
         </FormGroup>
