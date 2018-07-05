@@ -33,8 +33,6 @@ class App extends Component {
                   <Route exact path="/Categories" component={Categories}/>
                   <Route path="/Register" component={Register}/>
                   <Route path="/Login" component={Login}/>
-                  <Route path="/Register" component={Register}/>
-                  <Route path="/Login" component={Login}/>
                   <Route exact path="/Categories" component={Categories}/>
               </div>
               <Footer/>
