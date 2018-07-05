@@ -31,6 +31,9 @@ export default class Navigation extends Component {
                         <NavItem eventKey={3} href="/Profile">
                             Profile
                         </NavItem>
+						<NavItem eventKey={3} href="/CreateEvent">
+                            Create Event
+                        </NavItem>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
