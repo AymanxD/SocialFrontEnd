@@ -27,7 +27,32 @@ export default class Home extends Component{
             if(event.keyCode === 13){
                 this.props.history.push('/events');
             }
-        })
+        });
+
+        fetch('https://socialbackendweb.herokuapp.com/users', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: {
+                email: 'Ayman@awesome.com',
+                favouriteSong: 'What is love?',
+            },
+            })
+            .then((response) => {
+               console.log(response) ;
+            });
+
+
+
+        fetch('https://socialbackendweb.herokuapp.com/users')
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     }
 
     render(){

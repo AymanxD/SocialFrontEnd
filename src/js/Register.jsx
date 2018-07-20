@@ -3,12 +3,15 @@ import './../css/Home.css';
 import Navigation from './Navigation'
 import Card from './card';
 import Search from './search';
-import { Button, Navbar, Nav, NavItem, NavDropdown, MenuItem, FormGroup, ControlLabel, FormControl  } from 'react-bootstrap';
+import { Button, Navbar, Nav, NavItem, NavDropdown, MenuItem, FormGroup, ControlLabel, FormControl  } from 'react-bootstrap';
+
 import './../css/Register.css';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
-import "react-datepicker/dist/react-datepicker-cssmodules.css";
-export default class Home extends Component{
+import "react-datepicker/dist/react-datepicker-cssmodules.css";
+
+export default class Home extends Component{
+
 constructor (props) {
     super(props)
     this.state = {
@@ -41,11 +44,14 @@ constructor (props) {
           <br />
           <FormControl  type="text" placeholder="Enter Name" />
           <br />
-         <DatePicker  id="sizedate"className="form-control " selected={this.state.startDate} onChange={this.handleChange}/>  
+         <DatePicker  id="sizedate" className="form-control " selected={this.state.startDate} onChange={this.handleChange}/>
+
 		<br/>   
-           <FormControl  type="text" placeholder="Location" />
+           <FormControl  type="text" placeholder="Location" />
+
           <br />
-           <FormControl  type="text" placeholder="Interest" />
+           <FormControl  type="text" placeholder="Interest" />
+
           <br />
           <FormControl.Feedback />
         </FormGroup>
