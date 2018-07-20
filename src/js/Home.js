@@ -66,13 +66,27 @@ export default class Home extends Component{
                     <Link to="/Event_Details">
                         <Card image={image1} event={"Food"} description={"Popular Event"}/>
                     </Link>
+                    <Link to="/Event_Details">
                     <Card image={image2} event={"Outdoors"} description={"Popular Event"}/>
+                    </Link>
+                    <Link to="/Event_Details">
                     <Card image={image3} event={"Technology"} description={"Popular Event"}/>
+                    </Link>
+                    <Link to="/Event_Details">
                     <Card image={image4} event={"Community"} description={"Popular Event"}/>
+                    </Link>
+                    <Link to="/Event_Details">
                     <Card image={image5} event={"Fashion"} description={"Popular Event"}/>
+                    </Link>
+                    <Link to="/Event_Details">
                     <Card image={image6} event={"Travel"} description={"Popular Event"}/>
+                    </Link>
+                    <Link to="/Event_Details">
                     <Card image={image7} event={"Photography"} description={"Popular Event"}/>
+                    </Link>
+                    <Link to="/Event_Details">
                     <Card image={image8} event={"Art"} description={"Popular Event"}/>
+                    </Link>
                 </div>
             </div>
         );
