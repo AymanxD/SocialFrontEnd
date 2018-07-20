@@ -35,21 +35,22 @@ export default class Home extends Component{
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
             },
-            body: {
+            body: JSON.stringify({
                 email: 'Ayman@awesome.com',
                 favouriteSong: 'What is love?',
-            },
+            }),
             })
-            .then((response) => {
-               console.log(response) ;
+            .then(response => response.json())
+            .then(jsondata => console.log(jsondata))
+            .catch((error) => {
+                console.error(error);
             });
 
 
 
         fetch('https://socialbackendweb.herokuapp.com/users')
-            .then((response) => {
-                console.log(response);
-            })
+            .then(response => response.json())
+            .then(jsondata => console.log(jsondata))
             .catch((error) => {
                 console.error(error);
             });
