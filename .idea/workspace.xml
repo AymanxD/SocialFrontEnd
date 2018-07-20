@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fadcd313-fe32-4d06-8553-ab250c1cddf7" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/Home.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/Home.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/css/Register.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/Register.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Register.jsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -47,8 +43,8 @@
       <file leaf-file-name="Register.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/css/Register.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="17" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
+            <state relative-caret-position="450">
+              <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -192,12 +188,12 @@
       <workItem from="1531307042627" duration="3836000" />
       <workItem from="1531400538889" duration="721000" />
       <workItem from="1531854051199" duration="1251000" />
-      <workItem from="1532050706573" duration="2362000" />
+      <workItem from="1532050706573" duration="2939000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9606000" />
+    <option name="totallyTimeSpent" value="10183000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -402,8 +398,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/css/Register.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="17" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
+        <state relative-caret-position="450">
+          <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
         </state>
       </provider>
     </entry>
