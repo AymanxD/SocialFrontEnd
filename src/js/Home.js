@@ -36,7 +36,7 @@ export default class Home extends Component{
                 'Content-Type': 'application/json',
             },
             body: {
-                email: 'Ayman@awesomeblah.com',
+                email: 'Ayman@awesome.com',
                 favouriteSong: 'What is love?',
             },
             })
