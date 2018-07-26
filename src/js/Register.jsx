@@ -13,7 +13,7 @@ import "react-datepicker/dist/react-datepicker-cssmodules.css";
 export default class Home extends Component{
 
 constructor (props) {
-    super(props)
+    super(props);
     this.state = {
       startDate: moment()
     };
