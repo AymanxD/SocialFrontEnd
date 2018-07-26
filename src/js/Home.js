@@ -27,7 +27,33 @@ export default class Home extends Component{
             if(event.keyCode === 13){
                 this.props.history.push('/events');
             }
-        })
+        });
+
+        fetch('https://socialbackendweb.herokuapp.com/users', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                email: 'Ayman@awesome.com',
+                favouriteSong: 'What is love?',
+            }),
+            })
+            .then(response => response.json())
+            .then(jsondata => console.log(jsondata))
+            .catch((error) => {
+                console.error(error);
+            });
+
+
+
+        fetch('https://socialbackendweb.herokuapp.com/users')
+            .then(response => response.json())
+            .then(jsondata => console.log(jsondata))
+            .catch((error) => {
+                console.error(error);
+            });
     }
 
     render(){
@@ -41,13 +67,27 @@ export default class Home extends Component{
                     <Link to="/Event_Details">
                         <Card image={image1} event={"Food"} description={"Popular Event"}/>
                     </Link>
-                    <Card image={image2} event={"Outdoors"} description={"Popular Event"}/>
-                    <Card image={image3} event={"Technology"} description={"Popular Event"}/>
-                    <Card image={image4} event={"Community"} description={"Popular Event"}/>
-                    <Card image={image5} event={"Fashion"} description={"Popular Event"}/>
-                    <Card image={image6} event={"Travel"} description={"Popular Event"}/>
-                    <Card image={image7} event={"Photography"} description={"Popular Event"}/>
-                    <Card image={image8} event={"Art"} description={"Popular Event"}/>
+                    <Link to="/Event_Details">
+                        <Card image={image2} event={"Outdoors"} description={"Popular Event"}/>
+                    </Link>
+                    <Link to="/Event_Details">
+                        <Card image={image3} event={"Technology"} description={"Popular Event"}/>
+                    </Link>
+                    <Link to="/Event_Details">
+                       <Card image={image4} event={"Community"} description={"Popular Event"}/>
+                    </Link>
+                    <Link to="/Event_Details">
+                      <Card image={image5} event={"Fashion"} description={"Popular Event"}/>
+                    </Link>
+                    <Link to="/Event_Details">
+                       <Card image={image6} event={"Travel"} description={"Popular Event"}/>
+                    </Link>
+                    <Link to="/Event_Details">
+                       <Card image={image7} event={"Photography"} description={"Popular Event"}/>
+                    </Link>
+                    <Link to="/Event_Details">
+                       <Card image={image8} event={"Art"} description={"Popular Event"}/>
+                    </Link>
                 </div>
             </div>
         );
