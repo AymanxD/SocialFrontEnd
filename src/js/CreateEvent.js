@@ -51,7 +51,7 @@ export default class CE extends Component{
 						    <label for="Event_Name" >Event Title:</label>
 						</div>
 						<div className="col-lg-9">
-						    <input type="text" className="form-control" name="eventname" />
+						    <input type="text" className="form-control" name="eventname" required/>
 					    </div>
 					</div>   
 				  </div>
@@ -62,7 +62,7 @@ export default class CE extends Component{
 						    <label for="D&T">Event Description:</label>
 						</div>
 						<div className="col-lg-9">
-						    <input type="text" className="form-control" name="eventdescriptiion" />
+						    <input type="text" className="form-control" name="eventdescriptiion" required/>
 					    </div>
 					</div>   
 				  </div>
@@ -73,7 +73,7 @@ export default class CE extends Component{
 						    <label for="Venue">Venue:</label>
 						</div>
 						<div className="col-lg-9">
-						    <input type="text" className="form-control" name="eventvenue" />
+						    <input type="text" className="form-control" name="eventvenue" required/>
 					    </div>
 					</div>   
 				  </div>
@@ -84,7 +84,7 @@ export default class CE extends Component{
 						    <label for="Des">Event Date:</label>
 						</div>
 						<div className="col-lg-9">
-						    <input type="date" className="form-control" name="eventdate" />
+						    <input type="date" className="form-control" name="eventdate" required/>
 					    </div>
 					</div>   
 				  </div>
@@ -95,7 +95,7 @@ export default class CE extends Component{
 						    <label for="Des">Start Time:</label>
 						</div>
 						<div className="col-lg-9">
-						    <input type="time" className="form-control" name="eventstime" />
+						    <input type="time" className="form-control" name="eventstime" required/>
 					    </div>
 					</div>   
 				</div>
@@ -106,7 +106,7 @@ export default class CE extends Component{
 						    <label for="Des">End Time:</label>
 						</div>
 						<div className="col-lg-9">
-						    <input type="time" className="form-control" name="eventetime" />
+						    <input type="time" className="form-control" name="eventetime" required/>
 					    </div>
 					</div>   
 				</div>
@@ -117,7 +117,7 @@ export default class CE extends Component{
 						    <label for="Des">Number of Seats</label>
 						</div>
 						<div className="col-lg-9">
-						    <input type="number" className="form-control" name="eventseats" />
+						    <input type="number" className="form-control" name="eventseats" required/>
 					    </div>
 					</div>   
 				</div>
@@ -128,7 +128,7 @@ export default class CE extends Component{
 						    <label for="UP">Upload Photos:</label>
 						</div>
 						<div className="col-lg-9">
-						<input type="text" className="form-control" name="eventimage" />
+						<input type="text" className="form-control" name="eventimage" required/>
 						
 						    {/* <input type="file" id="UP" className="btn button"/> */}
 					    </div>
@@ -140,7 +140,7 @@ export default class CE extends Component{
 						    <label for="Des">Category:</label>
 						</div>
 						<div className="col-lg-9">
-						    <input type="text" className="form-control" name="eventcategory" />
+						    <input type="text" className="form-control" name="eventcategory" required/>
 					    </div>
 					</div>   
 				  </div> 
@@ -151,7 +151,7 @@ export default class CE extends Component{
 						    <label for="PN">Phone Number:</label>
 						</div>
 						<div className="col-lg-9">
-						    <input type="text" className="form-control" name="eventnumber" />
+						    <input type="text" className="form-control" name="eventnumber" required/>
 					    </div>
 					</div>   
 				  </div>
