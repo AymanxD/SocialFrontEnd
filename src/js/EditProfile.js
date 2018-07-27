@@ -81,7 +81,8 @@ export default class EditProfile extends Component{
         body: formData,
     })
     .then(response => response.json())
-        .then(jsondata => console.log(jsondata))
+        .then(jsondata => alert(jsondata.success))
+        
         .catch((error) => {
             console.error(error);
         });
