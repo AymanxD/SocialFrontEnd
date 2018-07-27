@@ -12,6 +12,8 @@ import Profile from './js/Profile';
 import CreateEvent from './js/CreateEvent';
 import Event_Details from './js/Event_Details';
 import Mapview from './js/Map_View';
+import EditProfile from './js/EditProfile';
+import Category from './js/category';
 
 
 
@@ -33,7 +35,8 @@ class App extends Component {
                   <Route exact path="/Categories" component={Categories}/>
                   <Route path="/Register" component={Register}/>
                   <Route path="/Login" component={Login}/>
-                  <Route exact path="/Categories" component={Categories}/>
+                  <Route path="/EditProfile" component={EditProfile}/>
+                  <Route path="/Category" component={Category}/>
               </div>
               <Footer/>
             </div>

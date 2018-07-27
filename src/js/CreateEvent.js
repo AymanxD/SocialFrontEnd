@@ -8,6 +8,7 @@ import './../css/CreateEvent.css';
 
 
 export default class CE extends Component{
+
 	render() {
 		return (
 		<div>
@@ -65,7 +66,7 @@ export default class CE extends Component{
 						    <label for="UP">Upload Photos:</label>
 						</div>
 						<div className="col-lg-9">
-						    <input type="file" id="UP" className="btn button"/>
+						    <input type="file" id="imageInput" className="btn button"/>
 					    </div>
 					</div>   
 				  </div>
