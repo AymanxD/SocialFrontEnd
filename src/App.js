@@ -14,6 +14,7 @@ import Event_Details from './js/Event_Details';
 import Mapview from './js/Map_View';
 import EditProfile from './js/EditProfile';
 import Category from './js/category';
+import SearchResults from './js/searchResults'
 
 
 
@@ -37,6 +38,7 @@ class App extends Component {
                   <Route path="/Login" component={Login}/>
                   <Route path="/EditProfile" component={EditProfile}/>
                   <Route path="/Category" component={Category}/>
+                  <Route path="/SearchResults/:searchTerm" component={SearchResults}/>
               </div>
               <Footer/>
             </div>
