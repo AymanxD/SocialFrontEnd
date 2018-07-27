@@ -12,6 +12,7 @@ import image6 from './../images/image6.jpg'
 import image7 from './../images/image7.jpg'
 import image8 from './../images/image8.jpg'
 
+import {Link} from 'react-router-dom';
 
 export default class categories extends Component{
 
@@ -29,6 +30,8 @@ export default class categories extends Component{
         })
     }
 
+// <Link to="ideas" params={{ testvalue: "hello" }}>Create Idea</Link>
+
     render(){
         return (
             <div className="App">
@@ -37,14 +40,14 @@ export default class categories extends Component{
                 <Search/>
                 <h2> Categories</h2>                
                 <div className="popularCards">
-                    <Card image={image1} event={"Food Events"}/>
-                    <Card image={image2} event={"Outdoor Events"} />
-                    <Card image={image3} event={"Technological Events"} />
-                    <Card image={image4} event={"Community Events"} />
-                    <Card image={image5} event={"Fashion Events"} />
-                    <Card image={image6} event={"Travel Events"} />
-                    <Card image={image7} event={"Photography Events"} />
-                    <Card image={image8} event={"Art Events"} />
+                    <Link to="ideas" params={{ testvalue: "hello" }}><Card image={image1} event={"Food Events"}/></Link>
+                    <Link to="ideas" params={{ testvalue: "hello" }}> <Card image={image2} event={"Outdoor Events"} /></Link>
+                    <Link to="ideas" params={{ testvalue: "hello" }}><Card image={image3} event={"Technological Events"} /></Link>
+                    <Link to="ideas" params={{ testvalue: "hello" }}><Card image={image4} event={"Community Events"} /></Link>
+                    <Link to="ideas" params={{ testvalue: "hello" }}> <Card image={image5} event={"Fashion Events"} /></Link>
+                    <Link to="ideas" params={{ testvalue: "hello" }}><Card image={image6} event={"Travel Events"} /></Link>
+                    <Link to="ideas" params={{ testvalue: "hello" }}> <Card image={image7} event={"Photography Events"} /></Link>
+                    <Link to="ideas" params={{ testvalue: "hello" }}> <Card image={image8} event={"Art Events"} /></Link>
                 </div>
             </div>
         );

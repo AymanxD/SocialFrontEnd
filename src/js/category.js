@@ -3,19 +3,10 @@ import axios from 'axios';
 import './../css/Home.css';
 import Navigation from './Navigation'
 import Card from './card';
-import Categoires from './categories';
 import Search from './search';
 import {Link} from 'react-router-dom';
-import image1 from './../images/image1.jpg'
-import image2 from './../images/image2.jpg'
-import image3 from './../images/image3.jpg'
-import image4 from './../images/image4.jpg'
-import image5 from './../images/image5.jpg'
-import image6 from './../images/image6.jpg'
-import image7 from './../images/image7.jpg'
-import image8 from './../images/image8.jpg'
 
-export default class Home extends Component{
+export default class Category extends Component{
 
     constructor(props){
         super(props);
@@ -27,7 +18,7 @@ export default class Home extends Component{
     }
 
     componentWillMount(){
-        axios.get('http://localhost:3001/events/popular')
+        axios.get(`http://localhost:3001/events/${this.props.category}`)
             .then((response) => {
 
                 let events = [];
