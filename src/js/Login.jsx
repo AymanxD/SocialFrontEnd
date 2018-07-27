@@ -8,20 +8,44 @@ import './../css/Login.css';
 
 export default class Signin extends React.Component {
    
+   
+    handleSubmit = (e) => {
+		e.preventDefault()
+
+        fetch('http://localhost:3001/login', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+            	email: e.target.elements.email.value,
+            	password: e.target.elements.password.value
+            }),
+            })
+            .then(response => response.json())
+            .then(jsondata => alert(jsondata.message))
+            .catch((error) => {
+                console.error(error);
+            });
+
+    }
+   
+   
     render() {
     
         return (
            <div id="LoginPage">
        <Navigation />
-       <div class="container" id="Login" align="center">
+       <div className="container" id="Login" align="center">
          <div className="col-md-6 col-md-offset-3">
          <h2 className="form-signup-heading"> Please sign in </h2>
                 
-        <form>
-        <FormGroup controlId="formBasicText" >
-          <FormControl  type="text" placeholder="Enter Email" />
+        <form onSubmit={this.handleSubmit}>
+        <FormGroup>
+          <FormControl  type="text" placeholder="Enter Email" name="email" required/>
           <br />
-          <FormControl  type="password" placeholder="Enter Password" />
+          <FormControl  type="password" placeholder="Enter Password" name="password" required/>
           <FormControl.Feedback />
         </FormGroup>
         <Button type="submit"  className="button_col"  bsStyle="warning" bsSize="large" block>Login</Button>

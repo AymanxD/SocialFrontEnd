@@ -12,19 +12,36 @@ import "react-datepicker/dist/react-datepicker-cssmodules.css";
 
 export default class Home extends Component{
 
-constructor (props) {
-    super(props);
-    this.state = {
-      startDate: moment()
-    };
-    this.handleChange = this.handleChange.bind(this);
-  }
+  handleSubmit = (e) => {
+		e.preventDefault()
 
-  handleChange(date) {
-    this.setState({
-      startDate: date
-    });
-  }
+        fetch('http://localhost:3001/register', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+            	email: e.target.elements.email.value,
+            	password: e.target.elements.password.value,
+            	date: e.target.elements.date.value,
+            	repassword: e.target.elements.repassword.value,
+            	name: e.target.elements.name.value,
+            	address: e.target.elements.address.value,
+            	location: e.target.elements.location.value,
+            	phonenumber: e.target.elements.phonenumber.value,
+            	interest: e.target.elements.interest.value
+            }),
+            })
+            .then(response => response.json())
+            .then(jsondata => alert(jsondata.message))
+            .catch((error) => {
+                console.error(error);
+            });
+
+    }
+
+  
     render(){
         return (
             <div className="App"  >
@@ -34,23 +51,25 @@ constructor (props) {
          <div className="col-md-6 col-md-offset-3">
          <h2 className="form-signup-heading"> Please sign Up </h2>
 
-        <form>
-        <FormGroup controlId="formBasicText">
-          <FormControl  type="text" placeholder="Enter Email" />
+        <form onSubmit={this.handleSubmit}>
+        <FormGroup>
+          <FormControl  type="text" placeholder="Enter Email" name="email" required/>
           <br />
-          <FormControl  type="password" placeholder="Enter Password" />
+          <FormControl  type="password" placeholder="Enter Password" name="password" required/>
           <br />
-          <FormControl  type="password" placeholder="Re-enter Password" />
+          <FormControl  type="password" placeholder="Re-enter Password" name="repassword"/>
           <br />
-          <FormControl  type="text" placeholder="Enter Name" />
+          <FormControl  type="text" placeholder="Enter Name" name="name" required/>
           <br />
-         <DatePicker  id="sizedate" className="form-control " selected={this.state.startDate} onChange={this.handleChange}/>
-
+		<FormControl  type="date"  name="date"/>
 		<br/>
-           <FormControl  type="text" placeholder="Location" />
-
+		<FormControl  type="text" placeholder="Address" name="address"/>
           <br />
-           <FormControl  type="text" placeholder="Interest" />
+          <FormControl  type="text" placeholder="Phone number" name="phonenumber" required/>
+          <br />
+           <FormControl  type="text" placeholder="Location" name="location" required/>
+          <br />
+           <FormControl  type="text" placeholder="Interest" name="interest" required/>
 
           <br />
           <FormControl.Feedback />
