@@ -8,7 +8,6 @@ import './../css/CreateEvent.css';
 
 
 export default class CE extends Component{
-
 	handleSubmit = (event) => {
 		event.preventDefault()
 		
