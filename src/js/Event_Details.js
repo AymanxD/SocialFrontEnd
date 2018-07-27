@@ -50,13 +50,14 @@ export default class Event_Details extends Component {
                         </div>   
 		  					</div>
 		  					<div className="col-sm-6 col-xs-12 justify-content">
-
-							  {this.state.jsondata.map(datas =>
-								<li key={datas.idEvent}>{datas.event_name}</li>)}
-		  						<h3 className="Mrgin">WaterFront Music Festival</h3>
-			  					<h4>Date : 5th July 2018</h4>
-			  					<h4>Time : 06:00 pm - 09:00 pm</h4>
-			  					<h4>Venue : Dalhousie University</h4>
+		  						{this.state.jsondata.map(datas =>
+								  <h3 className="Mrgin" key={datas.idEvent}>{datas.event_name}</h3>	)}
+								{this.state.jsondata.map(datas =>  
+			  					<h4 key={datas.idEvent}>{datas.event_date}</h4>	)}
+								{this.state.jsondata.map(datas => 
+			  					<h4 key={datas.idEvent}>Time : {datas.start_time} - {datas.end_time}</h4>)}
+								{this.state.jsondata.map(datas =>   
+			  					<h4 key={datas.idEvent}>Venue : {datas.event_address}</h4>)}
 			  					<div class="action">
 									<Link to="/Map"><button class="register btn btn-sm">Directions</button></Link>
 								</div>
