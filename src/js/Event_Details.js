@@ -6,7 +6,29 @@ import {Link} from 'react-router-dom';
 
 
 
+
 export default class Event_Details extends Component {
+	constructor(props) {
+        super(props);
+        this.state = {
+            jsondata:[]
+        };
+    }
+
+	 componentDidMount(){
+		fetch('http://localhost:3001/events/view')
+			.then(response => response.json())
+			.then(jsondata => {
+				this.setState({jsondata});
+				console.log(this.state.jsondata);
+			})
+			.catch((error) => {
+				console.error(error);
+			})
+	 }
+
+	
+
 	render() {
 		return (
 		<div>
@@ -28,6 +50,9 @@ export default class Event_Details extends Component {
                         </div>   
 		  					</div>
 		  					<div className="col-sm-6 col-xs-12 justify-content">
+
+							  {this.state.jsondata.map(datas =>
+								<li key={datas.idEvent}>{datas.event_name}</li>)}
 		  						<h3 className="Mrgin">WaterFront Music Festival</h3>
 			  					<h4>Date : 5th July 2018</h4>
 			  					<h4>Time : 06:00 pm - 09:00 pm</h4>
