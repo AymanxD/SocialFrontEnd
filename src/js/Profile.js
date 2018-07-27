@@ -10,6 +10,7 @@ class Profile extends Component{
             jsondata:[],
             disable:true
         };
+
     }
     handleClick(e){
 
@@ -57,7 +58,7 @@ handleChange(e){
 				console.error(error);
 			})
 	 }
-   
+
     render(){
         return(
             <div id="profilePage">
@@ -76,8 +77,7 @@ handleChange(e){
                         </div>
                         <hr>
                         </hr>
-                       
-                            <form align="center" onSubmit={this.handleSubmit}>
+                          <form align="center" onSubmit={this.handleSubmit}>
                             <div className="row">
                                 <div className="col-xs-6 col-sm-6 col-md-6">
                                     <div className="form-group" id="text-al">
@@ -176,7 +176,6 @@ handleChange(e){
                                 </div>
                                 <div className="col-xs-3 col-sm-3 col-md-3">
                                     <div className="form-group" id="text-al">
-
                                     <button type="button" onClick={this.handleClick.bind(this)} 
                                     class="btn btn-block btn-lg btn_primary">Edit</button>
 
@@ -186,6 +185,7 @@ handleChange(e){
                                 <div className="col-xs-3 col-sm-3 col-md-3">
                                     <div className="form-group" id="text-al">
                                     <input type="button" class="btn btn-block btn-lg btn_primary" value="Submit"/>
+
                                     
                                     </div>
                                 </div>
