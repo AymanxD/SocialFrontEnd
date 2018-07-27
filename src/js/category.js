@@ -17,8 +17,10 @@ export default class Category extends Component{
 
     }
 
-    componentWillMount(){
-        axios.get(`http://localhost:3001/events/${this.props.category}`)
+    componentDidMount(){
+        const { category } = this.props.location.state;
+        console.log(category);
+        axios.get(`http://localhost:3001/events/${category}`)
             .then((response) => {
 
                 let events = [];
@@ -34,8 +36,8 @@ export default class Category extends Component{
                 console.log(error);
             })
             .then(() => {
-                console.log(this.state.eventData)
-                console.log(this.state.eventData[0]["event_name"])
+                console.log(this.state.eventData);
+                // console.log(this.state.eventData[0]["event_name"])
             });
     }
 
