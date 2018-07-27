@@ -16,6 +16,13 @@ import image8 from './../images/image8.jpg'
 
 export default class Home extends Component{
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            jsondata:[[]]
+        };
+    }
+
     componentDidMount(){
 
         // On pressing the enter key on the search menu go to the events list page.
@@ -28,6 +35,16 @@ export default class Home extends Component{
                 this.props.history.push('/events');
             }
         })
+
+        fetch('http://localhost:3001/home/popularevents')
+			.then(response => response.json())
+			.then(jsondata => {
+				this.setState({jsondata});
+                console.log(this.state.jsondata.event_name);
+			})
+			.catch((error) => {
+				console.error(error);
+			})
     }
 
     render(){
@@ -42,25 +59,25 @@ export default class Home extends Component{
                         <Card image={image1} event={"Food"} description={"Popular Event"}/>
                     </Link>
                     <Link to="/Event_Details">
-                    <Card image={image2} event={"Outdoors"} description={"Popular Event"}/>
+                        <Card image={image2} event={"Outdoors"} description={"Popular Event"}/>
                     </Link>
                     <Link to="/Event_Details">
-                    <Card image={image3} event={"Technology"} description={"Popular Event"}/>
+                        <Card image={image3} event={"Technology"} description={"Popular Event"}/>
                     </Link>
                     <Link to="/Event_Details">
-                    <Card image={image4} event={"Community"} description={"Popular Event"}/>
+                        <Card image={image4} event={"Community"} description={"Popular Event"}/>
                     </Link>
                     <Link to="/Event_Details">
-                    <Card image={image5} event={"Fashion"} description={"Popular Event"}/>
+                        <Card image={image5} event={"Fashion"} description={"Popular Event"}/>
                     </Link>
                     <Link to="/Event_Details">
-                    <Card image={image6} event={"Travel"} description={"Popular Event"}/>
+                        <Card image={image6} event={"Travel"} description={"Popular Event"}/>
                     </Link>
                     <Link to="/Event_Details">
-                    <Card image={image7} event={"Photography"} description={"Popular Event"}/>
+                        <Card image={image7} event={"Photography"} description={"Popular Event"}/>
                     </Link>
                     <Link to="/Event_Details">
-                    <Card image={image8} event={"Art"} description={"Popular Event"}/>
+                        <Card image={image8} event={"Art"} description={"Popular Event"}/>
                     </Link>
                 </div>
             </div>

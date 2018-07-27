@@ -151,7 +151,7 @@ export default class CE extends Component{
 						    <label for="PN">Phone Number:</label>
 						</div>
 						<div className="col-lg-9">
-						    <input type="tel" className="form-control" name="eventnumber" />
+						    <input type="text" className="form-control" name="eventnumber" />
 					    </div>
 					</div>   
 				  </div>

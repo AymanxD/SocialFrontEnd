@@ -15,15 +15,6 @@ export default class Event_Details extends Component {
         };
     }
 
-	// componentDidMount(){
-	// 	fetch('http://localhost:3001/events/view')
-	// 	.then(response => response.json())
-	// 	.then(data => this.setState({data}));
-	// 	// .catch((error) => {
-	// 	// console.error(error);
-	// 	// });
-	// }
-
 	 componentDidMount(){
 		fetch('http://localhost:3001/events/view')
 			.then(response => response.json())
