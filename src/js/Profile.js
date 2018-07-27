@@ -176,7 +176,6 @@ handleChange(e){
                                 </div>
                                 <div className="col-xs-3 col-sm-3 col-md-3">
                                     <div className="form-group" id="text-al">
-
                                     <button type="button" onClick={this.handleClick.bind(this)} 
                                     class="btn btn-block btn-lg btn_primary">Edit</button>
 
