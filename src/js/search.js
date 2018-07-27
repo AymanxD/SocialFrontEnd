@@ -1,6 +1,8 @@
 import React, { Component, Link } from 'react';
 import './../css/search.css';
 import {FormGroup, FormControl, ControlLabel} from 'react-bootstrap';
+import { Redirect } from 'react-router'
+import axios from 'axios';
 
 
 export default class Search extends Component {
@@ -12,8 +14,16 @@ export default class Search extends Component {
             province: "",
             city: "",
             searchLength: 1,
+            searchKey: "",
+            eventData: [],
+            searchRedirect: false
         };
+
+        this.handleSearchChange = this.handleSearchChange.bind(this);
+        this.search = this.search.bind(this);
     }
+
+    ///events/?search=/
 
     // Retrieve user location from Navigator and Google Maps API
     componentWillMount(){
@@ -50,8 +60,46 @@ export default class Search extends Component {
         } else {
             console.log('geolocation is not enabled on this browser')
         }
-
     }
+
+    componentDidMount(){
+
+        // On pressing the enter key on the search menu go to the events list page.
+        let form = document.getElementById("form");
+
+        form.addEventListener("keyup", (event) => {
+            event.preventDefault();
+
+            if(event.keyCode === 13){
+                this.setState({searchRedirect: true})
+            }
+        });
+    }
+
+    search = () => {
+        axios.get(`http://localhost:3001/events/?search=/${this.state.searchKey}`)
+            .then((response) => {
+
+                let events = [];
+                for(let i = 0; i < response.data.length; i++){
+                    events.push(response.data[i])
+                }
+                this.setState({
+                    eventData: events
+                })
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+            .then(() => {
+                console.log(this.state.eventData);
+                console.log(this.state.eventData[0]["event_name"])
+            });
+    };
+
+    handleSearchChange = (e) => {
+        this.setState({searchKey: e.target.value})
+    };
 
 
     render() {
@@ -65,11 +113,14 @@ export default class Search extends Component {
                         className="search"
                         type="text"
                         placeholder="Search for an Event!"
+                        onChange={(e) => this.handleSearchChange(e)}
                     />
                     <FormControl.Feedback />
-                    <a href="/Categories"><button type="button" class="btn btn_category pop" data-container="body" 
+                    <a href="/Categories"><button type="button" className="btn btn_category pop" data-container="body"
                     data-toggle="popover" data-placement="bottom"
-  					data-original-title="" title="">Categories</button></a>
+  					data-original-title="" title="">Categories</button>
+                    </a>
+                    {this.state.searchRedirect && (<Redirect to={'/events'}/>)}
                 </FormGroup>
                 <p className="locationLabel">{this.state.city}, {this.state.province}</p>
             </div>
