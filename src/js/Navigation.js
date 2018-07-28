@@ -28,6 +28,9 @@ export default class Navigation extends Component {
                         <NavItem eventKey={2} href="/about">
                             About
                         </NavItem>
+                        <NavItem eventKey={2} href="/EditProfile">
+                            Edit
+                        </NavItem>
                         <NavItem eventKey={3} href="/Profile">
                             Profile
                         </NavItem>
