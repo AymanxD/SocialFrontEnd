@@ -2,20 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fadcd313-fe32-4d06-8553-ab250c1cddf7" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/js/fullSearch.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/CreateEvent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/CreateEvent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/EditProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/EditProfile.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/Event_Details.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Event_Details.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/Map_Container.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Map_Container.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/Navigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Navigation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Register.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/categories.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/categories.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/search.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/category.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/category.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -50,8 +40,8 @@
       <file leaf-file-name="fullSearch.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/js/fullSearch.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
-              <caret line="147" column="28" lean-forward="true" selection-start-line="147" selection-end-line="148" />
+            <state relative-caret-position="462">
+              <caret line="152" column="10" lean-forward="true" selection-start-line="152" selection-start-column="10" selection-end-line="152" selection-end-column="10" />
               <folding>
                 <element signature="e#0#47#0" expanded="true" />
               </folding>
@@ -232,12 +222,12 @@
       <workItem from="1532050706573" duration="7554000" />
       <workItem from="1532563889011" duration="978000" />
       <workItem from="1532598211010" duration="10010000" />
-      <workItem from="1532684377364" duration="35206000" />
+      <workItem from="1532684377364" duration="35857000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60992000" />
+    <option name="totallyTimeSpent" value="61643000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -644,8 +634,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/fullSearch.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="147" column="28" lean-forward="true" selection-start-line="147" selection-end-line="148" />
+        <state relative-caret-position="462">
+          <caret line="152" column="10" lean-forward="true" selection-start-line="152" selection-start-column="10" selection-end-line="152" selection-end-column="10" />
           <folding>
             <element signature="e#0#47#0" expanded="true" />
           </folding>
