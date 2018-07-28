@@ -4,9 +4,6 @@ import Navigation from './Navigation'
 import image1 from '../images/image1.jpg';
 import {Link} from 'react-router-dom';
 
-
-
-
 export default class Event_Details extends Component {
 	constructor(props) {
         super(props);
@@ -16,18 +13,20 @@ export default class Event_Details extends Component {
     }
 
 	 componentDidMount(){
-		fetch('http://localhost:3001/events/view')
+
+		//console.log( this.props.location.state)
+		const { eventID } = this.props.location.state;
+		//console.log(eventID);
+		fetch(`http://localhost:3001/events/view/${eventID}`)
 			.then(response => response.json())
 			.then(jsondata => {
 				this.setState({jsondata});
-				console.log(this.state.jsondata);
+				// console.log(this.state.jsondata);
 			})
 			.catch((error) => {
 				console.error(error);
 			})
 	 }
-
-	
 
 	render() {
 		return (

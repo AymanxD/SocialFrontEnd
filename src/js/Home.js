@@ -55,7 +55,7 @@ export default class Home extends Component{
                 <Search/>
                 <div className="popularCards">
                     {this.state.eventData.map((event, key) => (
-                        <Link to={`/Event_Details/${event["idEvent"]}`}>
+                        <Link to={{ pathname:`/Event_Details/${event["idEvent"]}`, state:{ eventID: event["idEvent"]}}}>
                             <Card key={key} image={event["event_name"]} event={event["event_name"]} description={event["event_description"]}/>
                         </Link>
                     ))}
