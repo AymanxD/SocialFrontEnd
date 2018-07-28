@@ -15,6 +15,7 @@ import Mapview from './js/Map_View';
 import EditProfile from './js/EditProfile';
 import Category from './js/category';
 import SearchResults from './js/searchResults'
+import FullSearch from './js/fullSearch'
 
 
 
@@ -39,6 +40,7 @@ class App extends Component {
                   <Route path="/EditProfile" component={EditProfile}/>
                   <Route path="/Category" component={Category}/>
                   <Route path="/SearchResults/:searchTerm" component={SearchResults}/>
+                  <Route path="/FullSearch" component={FullSearch}/>
               </div>
               <Footer/>
             </div>
