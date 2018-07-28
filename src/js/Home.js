@@ -27,7 +27,7 @@ export default class Home extends Component{
     }
 
     componentWillMount(){
-        axios.get('http://localhost:3001/events/popular')
+        axios.get('https://socialfrontendweb.herokuapp.com/events/popular')
             .then((response) => {
 
                 let events = [];
