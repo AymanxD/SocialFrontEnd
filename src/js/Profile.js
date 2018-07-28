@@ -3,15 +3,25 @@ import Navigation from './Navigation'
 import './../css/Profile.css';
 
 class Profile extends Component{
-    constructor(){
-    super()
-    this.state={disable:true}
+   constructor(props) {
+        super(props);
+        this.state = {
+            jsondata:[]
+        };
     }
-    handleClick(e){
 
-    this.setState({disable:!this.state.disable})
-    }
-    
+	 componentDidMount(){
+		fetch('http://localhost:3001/profile/view')
+			.then(response => response.json())
+			.then(jsondata => {
+				this.setState({jsondata});
+				console.log(this.state.jsondata);
+			})
+			.catch((error) => {
+				console.error(error);
+			})
+	 }
+   
     render(){
         return(
             <div id="profilePage">
@@ -31,7 +41,7 @@ class Profile extends Component{
                         <hr>
                         </hr>
                        
-                            <form align="center" >
+                            <form align="center">
                             <div className="row">
                                 <div className="col-xs-6 col-sm-6 col-md-6">
                                     <div className="form-group" id="text-al">
@@ -40,7 +50,9 @@ class Profile extends Component{
                                 </div>
                                 <div className="col-xs-6 col-sm-6 col-md-6">
                                     <div className="form-group" id="text-al">
-                                    <input type="text" disabled={this.state.disable} name="user_name" id="user_name" className="form-control" placeholder="Dummy Name"  />
+                                    {this.state.jsondata.map(datas => 
+                                    <input type="text" name="user_name" id="user_name" 
+                                    className="form-control" placeholder="Dummy Name"  value={datas.user_name}/>)}
                                     </div>
                                 </div>
                                 <div className="col-xs-6 col-sm-6 col-md-6">
@@ -50,7 +62,7 @@ class Profile extends Component{
                                 </div>
                                 <div className="col-xs-6 col-sm-6 col-md-6">
                                     <div className="form-group" id="text-al">
-                                    <input type="text" disabled={this.state.disable}  name="BirthDate" id="Birthdate" className="form-control" placeholder="Dummy Date" />
+                                    <input type="text" name="BirthDate" id="Birthdate" className="form-control" placeholder="Dummy Date" />
                                     </div>
                                 </div>
                                 <div className="col-xs-6 col-sm-6 col-md-6">
@@ -60,7 +72,7 @@ class Profile extends Component{
                                 </div>
                                 <div className="col-xs-6 col-sm-6 col-md-6">
                                     <div className="form-group" id="text-al">
-                                    <input type="text" disabled={this.state.disable}  name="Location" id="Location" className="form-control" placeholder="Dummy Location" />
+                                    <input type="text" name="Location" id="Location" className="form-control" placeholder="Dummy Location" />
                                     </div>
                                 </div>
                                 <div className="col-xs-6 col-sm-6 col-md-6">
@@ -70,7 +82,7 @@ class Profile extends Component{
                                 </div>
                                 <div className="col-xs-6 col-sm-6 col-md-6">
                                     <div className="form-group" id="text-al">
-                                    <input type="text" disabled={this.state.disable} name="interests" id="interests" className="form-control" placeholder="Dummy Data" />
+                                    <input type="text" name="interests" id="interests" className="form-control" placeholder="Dummy Data" />
                                     </div>
                                 </div>
                                 <div className="col-xs-3 col-sm-3 col-md-3">
@@ -80,14 +92,14 @@ class Profile extends Component{
                                 <div className="col-xs-3 col-sm-3 col-md-3">
                                     <div className="form-group" id="text-al">
 
-                                    <button type="button" class="btn btn-block btn-lg btn_primary" onClick={this.handleClick.bind(this)}>Edit</button>
+                                    <button type="button" class="btn btn-block btn-lg btn_primary">Edit</button>
 
 
                                     </div>
                                 </div>
                                 <div className="col-xs-3 col-sm-3 col-md-3">
                                     <div className="form-group" id="text-al">
-                                    <input type="button" class="btn btn-block btn-lg btn_primary" value="Submit" onclick="location.href='#'"/>
+                                    <input type="button" class="btn btn-block btn-lg btn_primary" value="Back" onclick="location.href='#'"/>
                                     
                                     </div>
                                 </div>
