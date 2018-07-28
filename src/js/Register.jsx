@@ -21,7 +21,7 @@ export default class Home extends Component{
   handleSubmit = (e) => {
 		e.preventDefault()
 
-        fetch('http://localhost:3001/register', {
+        fetch('https://socialbackendweb.herokuapp.com//register', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',

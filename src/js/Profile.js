@@ -24,7 +24,7 @@ handleChange(e){
     handleSubmit = (event) => {
 		//event.preventDefault();
 		
-		fetch('https://socialfrontendweb.herokuapp.com/profile/edit', {
+		fetch('https://socialbackendweb.herokuapp.com//profile/edit', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -47,7 +47,7 @@ handleChange(e){
             });
 	}
 	 componentDidMount(){
-		fetch('https://socialfrontendweb.herokuapp.com/profile/view')
+		fetch('https://socialbackendweb.herokuapp.com//profile/view')
 			.then(response => response.json())
 			.then(jsondata => {
 				this.setState({jsondata});

@@ -77,7 +77,7 @@ export default class Search extends Component {
     }
 
     search = () => {
-        axios.get(`http://localhost:3001/events/?search=/${this.state.searchKey}`)
+        axios.get(`https://socialbackendweb.herokuapp.com//?search=/${this.state.searchKey}`)
             .then((response) => {
 
                 let events = [];
