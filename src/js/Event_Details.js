@@ -30,9 +30,9 @@ export default class Event_Details extends Component {
 
 
 	 handleSubmit = (event) => {
-		event.preventDefault()
+		event.preventDefault();
 		console.log(this.state.jsondata[0].idEvent);
-		fetch('https://socialbackendweb.herokuapp./events/register', {
+		fetch('https://socialbackendweb.herokuapp.com/events/register', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -48,7 +48,7 @@ export default class Event_Details extends Component {
             .catch((error) => {
                 console.error(error);
             });
-	}
+	};
 
 	render() {
 		return (
