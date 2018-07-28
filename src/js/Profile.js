@@ -8,7 +8,8 @@ class Profile extends Component{
         this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
             jsondata:[],
-            disable:true
+            disable:true,
+            user_name: ""
         };
     }
     handleClick(e){
@@ -21,7 +22,7 @@ handleChange(e){
 }
 
     handleSubmit = (event) => {
-		event.preventDefault()
+		//event.preventDefault();
 		
 		fetch('http://localhost:3001/profile/edit', {
             method: 'POST',
@@ -37,9 +38,8 @@ handleChange(e){
 				email: event.target.elements.email.value,
 				contact: event.target.elements.number.value,
                 password: event.target.elements.password.value,
-                image: event.target.elements.image.value,
             }),
-        })
+            })
             .then(response => response.json())
             .then(jsondata => console.log(jsondata))
             .catch((error) => {
@@ -77,7 +77,7 @@ handleChange(e){
                         <hr>
                         </hr>
                        
-                            <form align="center" onSubmit={this.handleSubmit}>
+                            <form align="center" action ="Profile.js" onSubmit={(e) => {this.handleSubmit(e)}}>
                             <div className="row">
                                 <div className="col-xs-6 col-sm-6 col-md-6">
                                     <div className="form-group" id="text-al">
@@ -88,8 +88,9 @@ handleChange(e){
                                     <div className="form-group" id="text-al">
                                     {this.state.jsondata.map(datas => 
                                     <input type="text" name="user" id="user_name" 
-                                    className="form-control" placeholder="Dummy Name" 
-                                     value={datas.user_name} />)}
+                                    disabled={this.state.disable}
+                                    className="form-control" placeholder={datas.user_name} 
+                                    required/>)}
                                     </div>
                                 </div>
                                 <div className="col-xs-6 col-sm-6 col-md-6">
@@ -101,8 +102,8 @@ handleChange(e){
                                     <div className="form-group" id="text-al">
                                     {this.state.jsondata.map(datas => 
                                     <input type="text" name="BirthDate" id="Birthdate" 
-                                    className="form-control" placeholder="Dummy Date"
-                                     disabled={this.state.disable} value={datas.user_birthdate} />)}
+                                    className="form-control" placeholder={datas.user_birthdate}
+                                     disabled={this.state.disable} required/>)}
                                     </div>
                                 </div>
                                 <div className="col-xs-6 col-sm-6 col-md-6">
@@ -114,12 +115,12 @@ handleChange(e){
                                     <div className="form-group" id="text-al">
                                     {this.state.jsondata.map(datas => 
                                     <input type="text" name="Location" id="Location"
-                                     className="form-control" placeholder="Dummy Location" 
-                                      disabled={this.state.disable} value={datas.user_address} />)}
+                                     className="form-control" placeholder={datas.user_address}
+                                      disabled={this.state.disable} required/>)}
                                     </div>
                                 </div>
                                 <div className="col-xs-6 col-sm-6 col-md-6">
-                                    <div className="form-group" id="text-al">
+                                    <div className="fosrm-group" id="text-al">
                                         <label>Interests:</label>
                                     </div>
                                 </div>
@@ -127,8 +128,8 @@ handleChange(e){
                                     <div className="form-group" id="text-al">
                                      {this.state.jsondata.map(datas => 
                                     <input type="text" name="interests" id="interests" 
-                                    className="form-control" placeholder="Dummy Data" 
-                                     disabled={this.state.disable} value={datas.user_interests} />)}
+                                    className="form-control" placeholder={datas.user_interests} 
+                                     disabled={this.state.disable} required/>)}
                                     </div>
                                 </div>
                                  <div className="col-xs-6 col-sm-6 col-md-6">
@@ -140,8 +141,8 @@ handleChange(e){
                                     <div className="form-group" id="text-al">
                                      {this.state.jsondata.map(datas => 
                                     <input type="text" name="email" id="email" 
-                                    className="form-control" placeholder="Dummy Data"
-                                     disabled={this.state.disable} value={datas.user_email} />)}
+                                    className="form-control" placeholder={datas.user_email}
+                                     disabled={this.state.disable} required/>)}
                                     </div>
                                 </div>
                                  <div className="col-xs-6 col-sm-6 col-md-6">
@@ -153,8 +154,8 @@ handleChange(e){
                                     <div className="form-group" id="text-al">
                                      {this.state.jsondata.map(datas => 
                                     <input type="text" name="number" id="number" 
-                                    className="form-control" placeholder="Dummy Data"
-                                     disabled={this.state.disable} value={datas.user_number} />)}
+                                    className="form-control" placeholder={datas.user_number}
+                                     disabled={this.state.disable} required/>)}
                                     </div>
                                 </div>
                                 <div className="col-xs-6 col-sm-6 col-md-6">
@@ -166,8 +167,8 @@ handleChange(e){
                                     <div className="form-group" id="text-al">
                                      {this.state.jsondata.map(datas => 
                                     <input type="text" name="password" id="password" 
-                                    className="form-control" placeholder="Dummy Data"
-                                     disabled={this.state.disable} value={datas.user_password} />)}
+                                    className="form-control" placeholder={datas.user_password} 
+                                     disabled={this.state.disable} required/>)}
                                     </div>
                                 </div>
                                 <div className="col-xs-3 col-sm-3 col-md-3">
@@ -184,7 +185,7 @@ handleChange(e){
                                 </div>
                                 <div className="col-xs-3 col-sm-3 col-md-3">
                                     <div className="form-group" id="text-al">
-                                    <input type="button" class="btn btn-block btn-lg btn_primary" value="Submit"/>
+                                    <input type="submit" class="btn btn-block btn-lg btn_primary" value="Submit"/>
                                     
                                     </div>
                                 </div>
