@@ -5,10 +5,15 @@ import Card from './card';
 import Search from './search';
 import { Button, Navbar, Nav, NavItem, NavDropdown, MenuItem, FormGroup, ControlLabel, FormControl  } from 'react-bootstrap';
 import './../css/Login.css';
+import {Link} from 'react-router-dom';
+import { Redirect } from 'react-router'
 
 export default class Signin extends React.Component {
    
-   
+   constructor(props){
+        super(props);
+		 this.state = { redirect: false};
+    }
     handleSubmit = (e) => {
 		e.preventDefault()
 
@@ -24,7 +29,15 @@ export default class Signin extends React.Component {
             }),
             })
             .then(response => response.json())
-            .then(jsondata => alert(jsondata.message))
+            .then((jsondata) => {
+
+                if(jsondata.message=="Login successful")
+                { 
+                	  this.setState({redirect: true});
+                }
+                else{
+                alert(jsondata.message); }
+            })
             .catch((error) => {
                 console.error(error);
             });
@@ -49,6 +62,7 @@ export default class Signin extends React.Component {
           <FormControl.Feedback />
         </FormGroup>
         <Button type="submit"  className="button_col"  bsStyle="warning" bsSize="large" block>Login</Button>
+                    {this.state.redirect && (<Redirect to={'/events'}/>)}
       </form>
 
          </div>
