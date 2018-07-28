@@ -31,7 +31,7 @@ export default class CE extends Component{
             }),
         })
             .then(response => response.json())
-            .then(jsondata => console.log(jsondata))
+            .then(jsondata => alert(jsondata.message))
             .catch((error) => {
                 console.error(error);
             });
