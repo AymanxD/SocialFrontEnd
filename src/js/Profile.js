@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import Navigation from './Navigation'
 import './../css/Profile.css';
+import axios from 'axios';
+import './../css/Home.css';
+import Card from './card';
+import UpdateEventForm from './UpdateEventForm';
+
+import {Link} from 'react-router-dom';
 
 class Profile extends Component{
    constructor(props) {
@@ -8,6 +14,8 @@ class Profile extends Component{
         this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
             jsondata:[],
+            eventData: [],
+            events:[],
             disable:true,
             user_name: ""
         };
@@ -51,7 +59,27 @@ handleChange(e){
 			.then(response => response.json())
 			.then(jsondata => {
 				this.setState({jsondata});
-				//console.log(this.state.jsondata);
+                //console.log(this.state.jsondata);
+                
+                axios.get('http://localhost:3001/event/viewcard')
+                .then((response) => {
+    
+                    let events = [];
+                    for(let i = 0; i < response.data.length; i++){
+                        events.push(response.data[i])
+                    }
+                    this.setState({
+                        eventData: events
+                    })
+                })
+                .catch((error) => {
+                    // handle error
+                    console.log(error);
+                })
+                .then(() => {
+                    //console.log(this.state.eventData)
+                    //console.log(this.state.eventData[0]["event_name"])
+                });
 			})
 			.catch((error) => {
 				console.error(error);
@@ -192,6 +220,14 @@ handleChange(e){
                                 </div>
                             </form>
                             </div>
+                            <h3>My Events</h3>
+                            <div className="popularCards">
+                    {this.state.eventData.map((event, key) => (
+                        <Link to={{ pathname:`/UpdateEventForm/${event["idEvent"]}`, state:{ eventID: event["idEvent"]}}}>
+                            <Card key={key} image={event["event_name"]} event={event["event_name"]} description={event["event_description"]}/>
+                        </Link>
+                    ))}
+                </div>
                     </div>
                 </div>
             </div>
