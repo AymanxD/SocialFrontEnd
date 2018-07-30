@@ -51,7 +51,7 @@ handleChange(e){
 			.then(response => response.json())
 			.then(jsondata => {
 				this.setState({jsondata});
-				console.log(this.state.jsondata);
+				//console.log(this.state.jsondata);
 			})
 			.catch((error) => {
 				console.error(error);

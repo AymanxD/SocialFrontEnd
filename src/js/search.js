@@ -29,7 +29,7 @@ export default class Search extends Component {
     componentWillMount(){
 
         let success = (position) => {
-            console.log(position);
+            //console.log(position);
             console.log('latitude', position.coords.latitude,
                 'longitude', position.coords.longitude);
 
@@ -39,7 +39,7 @@ export default class Search extends Component {
             fetch(url)
                 .then((response) => response.json())
                 .then((responseJson) => {
-                    console.log(responseJson);
+                    //console.log(responseJson);
                     this.setState({
                         province: responseJson.results[0].address_components[6].short_name,
                         city: responseJson.results[0].address_components[3].long_name

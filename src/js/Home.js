@@ -43,8 +43,8 @@ export default class Home extends Component{
                 console.log(error);
             })
             .then(() => {
-                console.log(this.state.eventData)
-                console.log(this.state.eventData[0]["event_name"])
+                //console.log(this.state.eventData)
+                //console.log(this.state.eventData[0]["event_name"])
             });
     }
 
