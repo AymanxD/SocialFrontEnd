@@ -19,8 +19,9 @@ export default class Category extends Component{
 
     componentDidMount(){
         const { category } = this.props.location.state;
-        console.log(category);
-        axios.get(`http://localhost:3001/events/${category}`)
+        //console.log(category);
+        axios.get(`
+events/${category}`)
             .then((response) => {
 
                 let events = [];
@@ -36,7 +37,7 @@ export default class Category extends Component{
                 console.log(error);
             })
             .then(() => {
-                console.log(this.state.eventData);
+                //console.log(this.state.eventData);
                 // console.log(this.state.eventData[0]["event_name"])
             });
     }
@@ -48,7 +49,7 @@ export default class Category extends Component{
                 <Search/>
                 <div className="popularCards">
                     {this.state.eventData.map((event, key) => (
-                        <Link to={`/Event_Details/${event["idEvent"]}`}>
+                        <Link to={{ pathname:`/Event_Details/${event["idEvent"]}`, state:{ eventID: event["idEvent"]}}}>
                             <Card key={key} image={event["event_name"]} event={event["event_name"]} description={event["event_description"]}/>
                         </Link>
                     ))}

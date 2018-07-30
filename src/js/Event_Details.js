@@ -4,36 +4,58 @@ import Navigation from './Navigation'
 import image1 from '../images/image1.jpg';
 import {Link} from 'react-router-dom';
 
-
-
-
 export default class Event_Details extends Component {
 	constructor(props) {
         super(props);
         this.state = {
             jsondata:[]
         };
-    }
-
+	}
+	
 	 componentDidMount(){
-		fetch('http://localhost:3001/events/view')
+
+		//console.log( this.props.location.state)
+		const { eventID } = this.props.location.state;
+		//console.log(eventID);
+		fetch(`http://localhost:3001/events/view/${eventID}`)
 			.then(response => response.json())
 			.then(jsondata => {
 				this.setState({jsondata});
-				console.log(this.state.jsondata);
+				//
 			})
 			.catch((error) => {
 				console.error(error);
 			})
 	 }
 
-	
+
+	 handleSubmit = (event) => {
+		event.preventDefault();
+		//console.log(this.state.jsondata[0].idEvent);
+		fetch('http://localhost:3001/events/register', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                UserID: "72",
+				EventID: this.state.jsondata[0].idEvent,
+            }),
+		}) 
+            .then(response => response.json())
+            .then(jsondata => alert(jsondata.message))
+            .catch((error) => {
+                console.error(error);
+            });
+	};
 
 	render() {
 		return (
 		<div>
 		  <Navigation/>	
 		  	<div className="container">
+			  <form onSubmit={this.handleSubmit}>
 		  			<div className="container-event">
 		  				<div id="wrapper" className="row">
 		  					<div className="col-xs-12 col-sm-6">
@@ -64,12 +86,13 @@ export default class Event_Details extends Component {
 								<br/><br/>
 			  					<h4 className="price">Ticket Price: <span>Free</span></h4><br/>
 			  					<div className="action">
-									<button className="register btn btn-default" type="button">Register For Event</button>
+									<button className="register btn btn-default" type="submit">Register For Event</button>
 								</div>
 						</div>
 						         
 		  			</div>
 		  		</div>
+			 </form>
 		  	</div>
 		</div>	
 		);
