@@ -18,26 +18,26 @@ export default class Home extends Component{
 		 this.state = { redirect: false};
     }
     
-  handleSubmit = (e) => {
-		e.preventDefault()
+  handleSubmit = (event) => {
+        event.preventDefault()
+        
+        let data = new FormData();
 
+        data.append('file', event.target.elements.image.files[0]);
+		data.append('email', event.target.elements.email.value);
+		data.append('password', event.target.elements.password.value);
+		data.append('repassword', event.target.elements.repassword.value);
+		data.append('bdate', event.target.elements.date.value);
+		data.append('name', event.target.elements.name.value);
+		data.append('address', event.target.elements.address.value);
+		data.append('location', event.target.elements.location.value);
+		data.append('phonenumber', event.target.elements.phonenumber.value);
+		data.append('interest', event.target.elements.interest.value);
+		
+		
         fetch('http://localhost:3001/register', {
             method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-            	email: e.target.elements.email.value,
-            	password: e.target.elements.password.value,
-            	date: e.target.elements.date.value,
-            	repassword: e.target.elements.repassword.value,
-            	name: e.target.elements.name.value,
-            	address: e.target.elements.address.value,
-            	location: e.target.elements.location.value,
-            	phonenumber: e.target.elements.phonenumber.value,
-            	interest: e.target.elements.interest.value
-            }),
+            body: data
             })
             .then(response => response.json())
             .then((jsondata) => {
@@ -74,9 +74,11 @@ export default class Home extends Component{
           <br />
           <FormControl  type="text" placeholder="Enter Name" name="name" required/>
           <br />
-		<FormControl  type="date"  name="date"/>
-		<br/>
-		<FormControl  type="text" placeholder="Address" name="address"/>
+          <FormControl type="file" name="image" accept="image/*" className="btn button" required />
+          <br />
+          <FormControl  type="date"  name="date"/>
+          <br/>
+		  <FormControl  type="text" placeholder="Address" name="address"/>
           <br />
           <FormControl  type="text" placeholder="Phone number" name="phonenumber" required/>
           <br />

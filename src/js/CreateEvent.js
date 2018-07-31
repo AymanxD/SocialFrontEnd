@@ -134,8 +134,17 @@ export default class CE extends Component{
 				  		<div className="col-lg-3">
 						    <label for="Des">Category:</label>
 						</div>
-						<div className="col-lg-9">
-						    <input type="text" className="form-control" name="eventcategory" required/>
+						<div className="col-lg-9">  
+						<select class="form-control" name="eventcategory">
+							<option>Food Event</option>
+							<option>Outdoor Event</option>
+							<option>Technological Event</option>
+							<option>Community Event</option>
+							<option>Fashion Event</option>
+							<option>Travel Event</option>
+							<option>Art Event</option>
+							<option>Others</option>
+						</select>
 					    </div>
 					</div>   
 				  </div> 
