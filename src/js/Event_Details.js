@@ -4,31 +4,39 @@ import Navigation from './Navigation'
 import image1 from '../images/image1.jpg';
 import {Link} from 'react-router-dom';
 import messages from './messages';
+import {TwitterShareButton, TwitterIcon} from 'react-share';
 
 export default class Event_Details extends Component {
 	constructor(props) {
         super(props);
         this.state = {
-            jsondata:[]
+        	jsondata:[],
+            shareURL: ""
         };
+
+        this.getEventDetails = this.getEventDetails.bind(this);
 	}
 	
 	 componentDidMount(){
 
-		//console.log( this.props.location.state)
-		const { eventID } = this.props.location.state;
-		//console.log(eventID);
-		fetch(`http://localhost:3001/events/view/${eventID}`)
-			.then(response => response.json())
-			.then(jsondata => {
-				this.setState({jsondata});
-				//
-			})
-			.catch((error) => {
-				console.error(error);
-			})
+         let url = window.location.href;
+         let id = url.substring(url.lastIndexOf('/') + 1);
+         this.getEventDetails(id);
+
+         this.setState({shareURL: url});
 	 }
 
+    getEventDetails = (eventID) => {
+        fetch(`http://localhost:3001/events/view/${eventID}`)
+            .then(response => response.json())
+            .then(jsondata => {
+                this.setState({jsondata});
+                //
+            })
+            .catch((error) => {
+                console.error(error);
+            })
+    };
 
 	 handleSubmit = (event) => {
 		event.preventDefault();
@@ -51,7 +59,7 @@ export default class Event_Details extends Component {
             });
 	};
 
-	render() {
+    render() {
 		return (
 		<div>
 		  <Navigation/>	
@@ -72,7 +80,7 @@ export default class Event_Details extends Component {
                                     </div>
                                     <div className="col-sm-5">
                                     <div className="form-group">
-                                            <input type="button" class="register btn btn-default childs" value=" Share Event " onclick="location.href='#'"/>
+										<TwitterShareButton url={this.state.shareURL}><TwitterIcon round={true}/></TwitterShareButton>
                                      </div>
                                 </div>
                         </div>   

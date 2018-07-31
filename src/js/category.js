@@ -14,7 +14,6 @@ export default class Category extends Component{
         this.state = {
             eventData: []
         }
-
     }
 
     componentDidMount(){
@@ -37,10 +36,6 @@ export default class Category extends Component{
                 // handle error
                 console.log(error);
             })
-            .then(() => {
-                //console.log(this.state.eventData);
-                // console.log(this.state.eventData[0]["event_name"])
-            });
     }
 
     render(){
