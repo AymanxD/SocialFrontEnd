@@ -3,6 +3,7 @@ import '../css/Event_Details.css';
 import Navigation from './Navigation'
 import {Link} from 'react-router-dom';
 import Geocode from "react-geocode";
+import messages from './messages';
 import {TwitterShareButton, TwitterIcon} from 'react-share';
 
 export default class Event_Details extends Component {
@@ -86,9 +87,6 @@ export default class Event_Details extends Component {
             });
 	};
 
-// <input type="button" className="register btn btn-default childs" value=" Share Event " onClick="location.href='#'"/>
-
-
     render() {
 		return (
 		<div>
@@ -102,7 +100,10 @@ export default class Event_Details extends Component {
 								  <img className="img-responsive" key={datas.idEvent} src={datas.event_image} alt="Event Picture" ></img>	)}
 		  						<div className="row socialbtn">
                                     <div className="col-sm-5">
-                                    <input type="button" className="register btn btn-default childs" value="Send Message"/>
+									<Link to={{ pathname:`/messages/`}}>
+                            
+                                    <input type="button" class="register btn btn-default childs" value="Send Message"/>
+									</Link>
                                     </div>
                                     <div className="col-sm-5">
                                     <div className="form-group">
