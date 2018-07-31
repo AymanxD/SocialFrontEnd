@@ -1,7 +1,7 @@
-import React, { Component, Link } from 'react';
+import React, { Component } from 'react';
 import './../css/search.css';
-import {FormGroup, FormControl, ControlLabel} from 'react-bootstrap';
-import { Redirect, Refresh  } from 'react-router'
+import {FormGroup, FormControl} from 'react-bootstrap';
+import { Redirect } from 'react-router';
 import axios from 'axios';
 
 

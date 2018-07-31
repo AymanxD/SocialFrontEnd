@@ -1,7 +1,8 @@
-import React, { Component, Link } from 'react';
+import React, { Component } from 'react';
 import './../css/search.css';
-import {FormGroup, FormControl, ControlLabel} from 'react-bootstrap';
+import {FormGroup, FormControl} from 'react-bootstrap';
 import Navigation from './Navigation'
+import {Link} from 'react-router-dom';
 import Card from './card';
 import axios from 'axios';
 
@@ -20,7 +21,7 @@ export default class FullSearch extends Component {
         };
 
         this.handleSearchChange = this.handleSearchChange.bind(this);
-        // this.search = this.search.bind(this);
+        this.search = this.search.bind(this);
     }
 
     // Retrieve user location from Navigator and Google Maps API
@@ -55,50 +56,14 @@ export default class FullSearch extends Component {
                     console.error(error);
                 }
             );
+
         } else {
             console.log('geolocation is not enabled on this browser')
         }
-    }
 
-    componentDidMount(){
-        // On pressing the enter key on the search menu go to the events list page.
-        let form = document.getElementById("form");
+        let { search } = this.props.location.state;
 
-        form.addEventListener("keyup", (event) => {
-            event.preventDefault();
-            if(document.getElementById("searchResults")){
-            }
-            else if(event.keyCode === 13){
-                this.search(this.state.searchKey)
-            }
-        });
-
-        let events = [];
-
-        axios.get(`http://localhost:3001/events`)
-            .then((response) => {
-
-                for(let i = 0; i < response.data.length; i++){
-                    events.push(response.data[i])
-                }
-                console.log(events);
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-            .then(() => {
-                this.setState({
-                    searchedData: events
-                });
-                console.log(this.state.searchedData[0]);
-            });
-
-        console.log(this.state.searchedData);
-
-    }
-
-    search = (query) => {
-        axios.get(`http://localhost:3001/events/search/`)
+        axios.get(`http://localhost:3001/events/search/${search}`)
             .then((response) => {
 
                 let events = [];
@@ -106,7 +71,29 @@ export default class FullSearch extends Component {
                     events.push(response.data[i])
                 }
                 this.setState({
-                    filteredData: events
+                    searchedData: events
+                })
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+            .then(() => {
+                console.log(this.state.searchedData);
+            });
+    }
+
+
+    search(){
+        console.log(this.state.searchKey);
+        axios.get(`http://localhost:3001/events/search/${this.state.searchKey}`)
+            .then((response) => {
+
+                let events = [];
+                for(let i = 0; i < response.data.length; i++){
+                    events.push(response.data[i])
+                }
+                this.setState({
+                    searchedData: events
                 })
             })
             .catch((error) => {
@@ -126,34 +113,38 @@ export default class FullSearch extends Component {
         return (
             <div>
                 <Navigation/>
-                <FormGroup
-                    controlId="formBasicText"
-                    id="form"
-                >
-                    <FormControl
-                        className="search"
-                        type="text"
-                        placeholder="Search for an Event!"
-                        onChange={(e) => this.handleSearchChange(e)}
-                    />
-                    <FormControl.Feedback />
-                    <a href="/Categories"><button type="button" className="btn btn_category pop" data-container="body"
-                                                  data-toggle="popover" data-placement="bottom"
-                                                  data-original-title="" title="">Categories</button>
-                    </a>
-                </FormGroup>
+                <form onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        this.search();
+                    }
+                }}>
+                    <FormGroup
+                        controlId="formBasicText"
+                        id="form"
+                    >
+                        <FormControl
+                            className="search"
+                            type="text"
+                            placeholder="Search for an Event!"
+                            onChange={(e) => this.handleSearchChange(e)}
+                        />
+                        <FormControl.Feedback />
+                        <a href="/Categories"><button type="button" className="btn btn_category pop" data-container="body"
+                                                      data-toggle="popover" data-placement="bottom"
+                                                      data-original-title="" title="">Categories</button>
+                        </a>
+                    </FormGroup>
+                </form>
                 <p className="locationLabel">{this.state.city}, {this.state.province}</p>
                 <div className="popularCards" id="searchResults">
                     {this.state.searchedData.map((event, key) => (
+                        <Link to={{ pathname:`/Event_Details/${event["idEvent"]}`, state:{ eventID: event["idEvent"]}}}>
                             <Card key={key} image={event["event_name"]} event={event["event_name"]} description={event["event_description"]}/>
-
+                        </Link>
                     ))}
                 </div>
             </div>
         );
     }
 }
-
-          //             <Link to={`/Event_Details/${event["idEvent"]}`}>
-//                             <Card key={key} image={event["event_name"]} event={event["event_name"]} description={event["event_description"]}/>
-//                         </Link>
