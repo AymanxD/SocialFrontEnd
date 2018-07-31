@@ -24,12 +24,12 @@ export default class Event_Details extends Component {
 		//console.log( this.props.location.state)
 		const { eventID } = this.props.location.state;
 		//console.log(eventID);
-		fetch(`http://localhost:3001/events/view/${eventID}`)
+		fetch(`https://socialbackendweb.herokuapp.com/events/view/${eventID}`)
 			.then(response => response.json())
 			.then(jsondata => {
 				this.setState({jsondata});
-				let address =jsondata[0]['event_address']
-				console.log(address)
+				let address =jsondata[0]['event_address'];
+				console.log(address);
 
 				Geocode.setApiKey("AIzaSyCw19ysNBwzIt8HY9RN5vshd5NNRRBrpU8");
 				Geocode.fromAddress(address).then(
