@@ -1,7 +1,7 @@
-import React, { Component, Link } from 'react';
+import React, { Component } from 'react';
 import './../css/search.css';
-import {FormGroup, FormControl, ControlLabel} from 'react-bootstrap';
-import { Redirect } from 'react-router'
+import {FormGroup, FormControl} from 'react-bootstrap';
+import { Redirect } from 'react-router';
 import axios from 'axios';
 
 
@@ -16,14 +16,12 @@ export default class Search extends Component {
             searchLength: 1,
             searchKey: "",
             eventData: [],
-            searchRedirect: false
+            searchRedirect: false,
         };
 
         this.handleSearchChange = this.handleSearchChange.bind(this);
         this.search = this.search.bind(this);
     }
-
-    ///events/?search=/
 
     // Retrieve user location from Navigator and Google Maps API
     componentWillMount(){
@@ -69,14 +67,16 @@ export default class Search extends Component {
 
         form.addEventListener("keyup", (event) => {
             event.preventDefault();
-
-            if(event.keyCode === 13){
+            if(document.getElementById("searchResults")){
+            }
+            else if(event.keyCode === 13){
                 this.setState({searchRedirect: true})
             }
         });
     }
 
     search = () => {
+
         axios.get(`http://localhost:3001/?search=/${this.state.searchKey}`)
             .then((response) => {
 
@@ -120,7 +120,9 @@ export default class Search extends Component {
                     data-toggle="popover" data-placement="bottom"
   					data-original-title="" title="">Categories</button>
                     </a>
-                    {this.state.searchRedirect && (<Redirect to={'/events'}/>)}
+                    {
+                        this.state.searchRedirect && (<Redirect to={{ pathname:`/FullSearch`, state:{ search:this.state.searchKey}}}/>)
+                    }
                 </FormGroup>
                 <p className="locationLabel">{this.state.city}, {this.state.province}</p>
             </div>

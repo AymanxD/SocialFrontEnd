@@ -13,9 +13,11 @@ import CreateEvent from './js/CreateEvent';
 import Event_Details from './js/Event_Details';
 import Mapview from './js/Map_View';
 import Category from './js/category';
+import SearchResults from './js/searchResults'
+import FullSearch from './js/fullSearch'
 import UpdateEventForm from './js/UpdateEventForm';
 import Chat from './js/Chat';
-
+import messages from './js/messages';
 
 
 class App extends Component {
@@ -37,8 +39,11 @@ class App extends Component {
                   <Route path="/Register" component={Register}/>
                   <Route path="/Login" component={Login}/>
                   <Route path="/Category" component={Category}/>
+                  <Route path="/SearchResults/:searchTerm" component={SearchResults}/>
+                  <Route path="/FullSearch" component={FullSearch}/>
                   <Route path="/UpdateEventForm" component={UpdateEventForm}/>
                   <Route path="/Chat" component={Chat}/>
+                  <Route path="/messages" component={messages}/>
               </div>
               <Footer/>
             </div>
