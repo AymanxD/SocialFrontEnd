@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import './../css/Home.css';
 import Navigation from './Navigation'
-import Card from './card';
-import Search from './search';
-import { Button, Navbar, Nav, NavItem, NavDropdown, MenuItem, FormGroup, ControlLabel, FormControl  } from 'react-bootstrap';
+import { Button, FormGroup,FormControl  } from 'react-bootstrap';
 import './../css/Login.css';
-import {Link} from 'react-router-dom';
 import { Redirect } from 'react-router'
 
-export default class Signin extends React.Component {
+export default class Signin extends Component {
    
    constructor(props){
         super(props);
@@ -17,7 +14,7 @@ export default class Signin extends React.Component {
     handleSubmit = (e) => {
 		e.preventDefault()
 
-        fetch('http://localhost:3001/login', {
+        fetch('https://socialbackendweb.herokuapp.com/login', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -31,9 +28,13 @@ export default class Signin extends React.Component {
             .then(response => response.json())
             .then((jsondata) => {
 
-                if(jsondata.message=="Login successful")
+                if(jsondata.message==="Login successful")
                 { 
-                	  this.setState({redirect: true});
+                    sessionStorage.setItem('session', jsondata.email)
+                    sessionStorage.setItem('userid', jsondata.Userid)
+                    sessionStorage.setItem('username', jsondata.Username)
+                    console.log(sessionStorage)
+                	this.setState({redirect: true});
                 }
                 else{
                 alert(jsondata.message); }
@@ -62,7 +63,7 @@ export default class Signin extends React.Component {
           <FormControl.Feedback />
         </FormGroup>
         <Button type="submit"  className="button_col"  bsStyle="warning" bsSize="large" block>Login</Button>
-                    {this.state.redirect && (<Redirect to={'/events'}/>)}
+                    {this.state.redirect && (<Redirect to={'/'}/>)}
       </form>
 
          </div>

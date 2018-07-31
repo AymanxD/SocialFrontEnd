@@ -4,7 +4,6 @@ import './../css/Profile.css';
 import axios from 'axios';
 import './../css/Home.css';
 import Card from './card';
-import UpdateEventForm from './UpdateEventForm';
 
 import {Link} from 'react-router-dom';
 
@@ -16,10 +15,12 @@ class Profile extends Component{
             jsondata:[],
             eventData: [],
             events:[],
+            userid: "",
             disable:true,
             user_name: ""
         };
     }
+    
     handleClick(e){
 
     this.setState({disable:!this.state.disable})
@@ -27,7 +28,7 @@ class Profile extends Component{
 
     handleSubmit = (event) => {
 
-		fetch('http://localhost:3001/profile/edit', {
+		fetch('https://socialbackendweb.herokuapp.com/profile/edit', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -50,13 +51,14 @@ class Profile extends Component{
             });
             window.location.reload(true);
 	}
-	 componentDidMount(){
-		fetch('http://localhost:3001/profile/view')
+	 componentWillMount(){
+
+		fetch("https://socialbackendweb.herokuapp.com/view/userid/" + sessionStorage.getItem('userid'))
 			.then(response => response.json())
 			.then(jsondata => {
 				this.setState({jsondata});
                 //console.log(this.state.jsondata);
-                
+                console.log(sessionStorage.getItem('userid'));
                 axios.get('http://localhost:3001/event/viewcard')
                 .then((response) => {
     
@@ -189,14 +191,14 @@ class Profile extends Component{
                                 <div className="col-xs-3 col-sm-3 col-md-3">
                                     <div className="form-group" id="text-al">
                                     <button type="button" onClick={this.handleClick.bind(this)} 
-                                    class="btn btn-block btn-lg btn_primary">Edit</button>
+                                    className="btn btn-block btn-lg btn_primary">Edit</button>
 
 
                                     </div>
                                 </div>
                                 <div className="col-xs-3 col-sm-3 col-md-3">
                                     <div className="form-group" id="text-al">
-                                    <button type="submit" class="btn btn-block btn-lg btn_primary">Submit</button>
+                                    <button type="submit" className="btn btn-block btn-lg btn_primary">Submit</button>
                                     
                                     </div>
                                 </div>
