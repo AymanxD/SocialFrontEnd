@@ -65,9 +65,13 @@ export default class Chat extends Component{
 
 	render() {
 		return (
-            <div className="container">
+            <div className="container1">
+            <h2>Testing Chat</h2>
+            <hr/>
               {this.state.jsondata.map((datas, key) => 
               <li key={key}>{datas.chat_message}</li>)}
+              <br/>
+              <br/>
               <form onSubmit={(e) => this.addMessage(e)}>
                     <input type="text" name="message"/>
                     {this.state.jsondata.map((datas, key) =>
