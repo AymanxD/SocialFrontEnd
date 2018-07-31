@@ -14,7 +14,7 @@ export default class Signin extends Component {
     handleSubmit = (e) => {
 		e.preventDefault()
 
-        fetch('http://localhost:3001/login', {
+        fetch('https://socialbackendweb.herokuapp.com/login', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -32,6 +32,7 @@ export default class Signin extends Component {
                 { 
                     sessionStorage.setItem('session', jsondata.email)
                     sessionStorage.setItem('userid', jsondata.Userid)
+                    sessionStorage.setItem('username', jsondata.Username)
                     console.log(sessionStorage)
                 	this.setState({redirect: true});
                 }
@@ -62,7 +63,7 @@ export default class Signin extends Component {
           <FormControl.Feedback />
         </FormGroup>
         <Button type="submit"  className="button_col"  bsStyle="warning" bsSize="large" block>Login</Button>
-                    {this.state.redirect && (<Redirect to={'/events'}/>)}
+                    {this.state.redirect && (<Redirect to={'/'}/>)}
       </form>
 
          </div>

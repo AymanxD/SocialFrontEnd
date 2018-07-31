@@ -69,7 +69,7 @@ export default class Event_Details extends Component {
 	 handleSubmit = (event) => {
 		event.preventDefault();
 		//console.log(this.state.jsondata[0].idEvent);
-		fetch('http://localhost:3001/events/register', {
+		fetch('https://socialbackendweb.herokuapp.com/events/register', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
