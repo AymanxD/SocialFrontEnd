@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import Navigation from './Navigation'
 import './../css/Profile.css';
+import axios from 'axios';
+import './../css/Home.css';
+import Card from './card';
+import UpdateEventForm from './UpdateEventForm';
+
+import {Link} from 'react-router-dom';
 
 class Profile extends Component{
    constructor(props) {
@@ -8,6 +14,8 @@ class Profile extends Component{
         this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
             jsondata:[],
+            eventData: [],
+            events:[],
             disable:true,
             user_name: ""
         };
@@ -17,13 +25,8 @@ class Profile extends Component{
     this.setState({disable:!this.state.disable})
     }
 
-handleChange(e){
-    this.setState({user_name: e.target.elements.user.value})
-}
-
     handleSubmit = (event) => {
-		//event.preventDefault();
-		
+
 		fetch('http://localhost:3001/profile/edit', {
             method: 'POST',
             headers: {
@@ -45,13 +48,34 @@ handleChange(e){
             .catch((error) => {
                 console.error(error);
             });
+            window.location.reload(true);
 	}
 	 componentDidMount(){
 		fetch('http://localhost:3001/profile/view')
 			.then(response => response.json())
 			.then(jsondata => {
 				this.setState({jsondata});
-				//console.log(this.state.jsondata);
+                //console.log(this.state.jsondata);
+                
+                axios.get('http://localhost:3001/event/viewcard')
+                .then((response) => {
+    
+                    let events = [];
+                    for(let i = 0; i < response.data.length; i++){
+                        events.push(response.data[i])
+                    }
+                    this.setState({
+                        eventData: events
+                    })
+                })
+                .catch((error) => {
+                    // handle error
+                    console.log(error);
+                })
+                .then(() => {
+                    //console.log(this.state.eventData)
+                    //console.log(this.state.eventData[0]["event_name"])
+                });
 			})
 			.catch((error) => {
 				console.error(error);
@@ -69,15 +93,15 @@ handleChange(e){
                      <h1> Profile Page</h1>
                      <div className="row">
                             <div className="col" align="center">
-
-                            <img id="avatar" name = "image" className="img-responsive" src={require('../images/profile.jpg')} alt="profile img" />
+                            {this.state.jsondata.map(datas => 
+                            <img id="avatar" name = "image" className="img-responsive" src={datas.user_image} alt="profile img" />)}
 
                             </div>
                         </div>
                         <hr>
                         </hr>
                        
-                            <form align="center" action ="Profile.js" onSubmit={(e) => {this.handleSubmit(e)}}>
+                            <form align="center"  onSubmit={this.handleSubmit}>
                             <div className="row">
                                 <div className="col-xs-6 col-sm-6 col-md-6">
                                     <div className="form-group" id="text-al">
@@ -87,7 +111,7 @@ handleChange(e){
                                 <div className="col-xs-6 col-sm-6 col-md-6">
                                     <div className="form-group" id="text-al">
                                     {this.state.jsondata.map(datas => 
-                                    <input type="text" name="user" id="user_name" 
+                                    <input type="text" name="user"  
                                     disabled={this.state.disable}
                                     className="form-control" placeholder={datas.user_name} 
                                     required/>)}
@@ -101,7 +125,7 @@ handleChange(e){
                                 <div className="col-xs-6 col-sm-6 col-md-6">
                                     <div className="form-group" id="text-al">
                                     {this.state.jsondata.map(datas => 
-                                    <input type="text" name="BirthDate" id="Birthdate" 
+                                    <input type="text" name="BirthDate"  
                                     className="form-control" placeholder={datas.user_birthdate}
                                      disabled={this.state.disable} required/>)}
                                     </div>
@@ -114,7 +138,7 @@ handleChange(e){
                                 <div className="col-xs-6 col-sm-6 col-md-6">
                                     <div className="form-group" id="text-al">
                                     {this.state.jsondata.map(datas => 
-                                    <input type="text" name="Location" id="Location"
+                                    <input type="text" name="Location" 
                                      className="form-control" placeholder={datas.user_address}
                                       disabled={this.state.disable} required/>)}
                                     </div>
@@ -127,7 +151,7 @@ handleChange(e){
                                 <div className="col-xs-6 col-sm-6 col-md-6">
                                     <div className="form-group" id="text-al">
                                      {this.state.jsondata.map(datas => 
-                                    <input type="text" name="interests" id="interests" 
+                                    <input type="text" name="interests"  
                                     className="form-control" placeholder={datas.user_interests} 
                                      disabled={this.state.disable} required/>)}
                                     </div>
@@ -140,7 +164,7 @@ handleChange(e){
                                 <div className="col-xs-6 col-sm-6 col-md-6">
                                     <div className="form-group" id="text-al">
                                      {this.state.jsondata.map(datas => 
-                                    <input type="text" name="email" id="email" 
+                                    <input type="text" name="email"  
                                     className="form-control" placeholder={datas.user_email}
                                      disabled={this.state.disable} required/>)}
                                     </div>
@@ -153,7 +177,7 @@ handleChange(e){
                                 <div className="col-xs-6 col-sm-6 col-md-6">
                                     <div className="form-group" id="text-al">
                                      {this.state.jsondata.map(datas => 
-                                    <input type="text" name="number" id="number" 
+                                    <input type="text" name="number" 
                                     className="form-control" placeholder={datas.user_number}
                                      disabled={this.state.disable} required/>)}
                                     </div>
@@ -166,7 +190,7 @@ handleChange(e){
                                 <div className="col-xs-6 col-sm-6 col-md-6">
                                     <div className="form-group" id="text-al">
                                      {this.state.jsondata.map(datas => 
-                                    <input type="text" name="password" id="password" 
+                                    <input type="text" name="password"  
                                     className="form-control" placeholder={datas.user_password} 
                                      disabled={this.state.disable} required/>)}
                                     </div>
@@ -185,7 +209,7 @@ handleChange(e){
                                 </div>
                                 <div className="col-xs-3 col-sm-3 col-md-3">
                                     <div className="form-group" id="text-al">
-                                    <input type="submit" class="btn btn-block btn-lg btn_primary" value="Submit"/>
+                                    <button type="submit" class="btn btn-block btn-lg btn_primary">Submit</button>
                                     
                                     </div>
                                 </div>
@@ -193,6 +217,14 @@ handleChange(e){
                             </form>
                             </div>
                     </div>
+                </div>
+                <h3>My Events</h3><hr/>
+                <div className="popularCards">
+                    {this.state.eventData.map((event, key) => (
+                        <Link to={{ pathname:`/UpdateEventForm/${event["idEvent"]}`, state:{ eventID: event["idEvent"]}}}>
+                            <Card key={key} image={event["event_name"]} event={event["event_name"]} description={event["event_description"]}/>
+                        </Link>
+                    ))}
                 </div>
             </div>
         );
