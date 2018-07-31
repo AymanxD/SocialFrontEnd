@@ -16,10 +16,12 @@ class Profile extends Component{
             jsondata:[],
             eventData: [],
             events:[],
+            userid: "",
             disable:true,
             user_name: ""
         };
     }
+    
     handleClick(e){
 
     this.setState({disable:!this.state.disable})
@@ -27,7 +29,7 @@ class Profile extends Component{
 
     handleSubmit = (event) => {
 
-		fetch('http://localhost:3001/profile/edit', {
+		fetch('https://socialbackendweb.herokuapp.com/profile/edit', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -50,13 +52,14 @@ class Profile extends Component{
             });
             window.location.reload(true);
 	}
-	 componentDidMount(){
-		fetch('http://localhost:3001/profile/view')
+	 componentWillMount(){
+
+		fetch("https://socialbackendweb.herokuapp.com/view/userid/" + sessionStorage.getItem('userid'))
 			.then(response => response.json())
 			.then(jsondata => {
 				this.setState({jsondata});
                 //console.log(this.state.jsondata);
-                
+                console.log(sessionStorage.getItem('userid'));
                 axios.get('http://localhost:3001/event/viewcard')
                 .then((response) => {
     

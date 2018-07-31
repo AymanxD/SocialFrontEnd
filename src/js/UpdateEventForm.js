@@ -25,7 +25,7 @@ export default class CE extends Component{
 	handleSubmit = (event) => {
 		event.preventDefault()
 		
-		fetch('http://localhost:3001/event/updateform', {
+		fetch('https://socialbackendweb.herokuapp.com/event/updateform', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',

@@ -7,6 +7,17 @@
     justify-content: space-evenly;
 }
 
+.welcome{
+
+padding-top: 0.300em;
+padding-left: 5.938em;
+ padding-right: 0.938em;
+ font-style: italic;
+  font-family: "Times New Roman", Times, serif;
+  color: #f7995b;
+  font-size: 25px;
+
+}
 .navigate{
     background: inherit;
     flex: 0 0 100%;
