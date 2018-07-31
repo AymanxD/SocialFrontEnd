@@ -6,7 +6,7 @@ import Card from './card';
 import Search from './search';
 import {Link} from 'react-router-dom';
 
-export default class Category extends Component{
+export default class SearchResults extends Component{
 
     constructor(props){
         super(props);
@@ -18,11 +18,9 @@ export default class Category extends Component{
     }
 
     componentDidMount(){
-        const { category } = this.props.location.state;
-
-        axios.get(`http://localhost:3001/events/${category}`)
-        //console.log(category);
-        axios.get(`events/${category}`)
+        const { search } = this.props.location.state;
+        console.log(search);
+        axios.get(`http://localhost:3001/events/search/${search}`)
             .then((response) => {
 
                 let events = [];
@@ -38,8 +36,7 @@ export default class Category extends Component{
                 console.log(error);
             })
             .then(() => {
-                //console.log(this.state.eventData);
-                // console.log(this.state.eventData[0]["event_name"])
+                console.log(this.state.eventData);
             });
     }
 
@@ -48,9 +45,9 @@ export default class Category extends Component{
             <div className="App">
                 <Navigation/>
                 <Search/>
-                <div className="popularCards">
+                <div className="popularCards" id="searchResults">
                     {this.state.eventData.map((event, key) => (
-                        <Link to={{ pathname:`/Event_Details/${event["idEvent"]}`, state:{ eventID: event["idEvent"]}}}>
+                        <Link to={`/Event_Details/${event["idEvent"]}`}>
                             <Card key={key} image={event["event_name"]} event={event["event_name"]} description={event["event_description"]}/>
                         </Link>
                     ))}

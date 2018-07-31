@@ -182,19 +182,6 @@ class Profile extends Component{
                                      disabled={this.state.disable} required/>)}
                                     </div>
                                 </div>
-                                <div className="col-xs-6 col-sm-6 col-md-6">
-                                    <div className="form-group" id="text-al">
-                                        <label>Password:</label>
-                                    </div>
-                                </div>
-                                <div className="col-xs-6 col-sm-6 col-md-6">
-                                    <div className="form-group" id="text-al">
-                                     {this.state.jsondata.map(datas => 
-                                    <input type="text" name="password"  
-                                    className="form-control" placeholder={datas.user_password} 
-                                     disabled={this.state.disable} required/>)}
-                                    </div>
-                                </div>
                                 <div className="col-xs-3 col-sm-3 col-md-3">
                                     <div className="form-group"id="text-al">
                                     </div>

@@ -12,7 +12,7 @@ export default class CE extends Component{
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
-            jsondata:[],
+			jsondata:[],
             disable:true
         };
 	}
@@ -63,6 +63,7 @@ export default class CE extends Component{
 				console.error(error);
 			})
 	 }
+
 	
 	render() {
 		return (
@@ -152,7 +153,7 @@ export default class CE extends Component{
 				<div className="form-group">
 				  	<div className="row">
 				  		<div className="col-lg-3">
-						    <label for="Des">Number of Seats</label>
+						    <label for="Des">Number of Seats:</label>
 						</div>
 						<div className="col-lg-9">
                         {this.state.jsondata.map(datas => 
@@ -160,6 +161,7 @@ export default class CE extends Component{
 							placeholder={datas.event_seat} disabled={this.state.disable} required/>)}
 					</div>   
 				</div>
+				<br/>
 
 				  <div className="form-group">
 				  	<div className="row">
@@ -168,22 +170,30 @@ export default class CE extends Component{
 						</div>
 						<div className="col-lg-9">
                         {this.state.jsondata.map(datas => 
-						<input type="text" className="form-control" name="eventimage" 
+						<input type="file" className="form-control" name="eventimage" 
 						placeholder={datas.event_image} disabled={this.state.disable} required/>)}
 						
 						    {/* <input type="file" id="UP" className="btn button"/> */}
 					    </div>
 					</div>   
 				  </div>
-				<div className="form-group">
+				  <div className="form-group">
 				  	<div className="row">
 				  		<div className="col-lg-3">
 						    <label for="Des">Category:</label>
 						</div>
-						<div className="col-lg-9">
-                        {this.state.jsondata.map(datas => 
-							<input type="text" className="form-control" name="eventcategory" 
-							placeholder={datas.category_name} disabled={this.state.disable} required/>)}
+						<div className="col-lg-9">  
+						<select class="form-control" name="eventcategory" disabled={this.state.disable}>
+							<option>Select category</option>
+							<option>Food Event</option>
+							<option>Outdoor Event</option>
+							<option>Technological Event</option>
+							<option>Community Event</option>
+							<option>Fashion Event</option>
+							<option>Travel Event</option>
+							<option>Art Event</option>
+							<option>Others</option>
+						</select>
 					    </div>
 					</div>   
 				  </div> 
