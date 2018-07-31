@@ -34,6 +34,7 @@ export default class Signin extends React.Component {
                 if(jsondata.message=="Login successful")
                 { 
                     sessionStorage.setItem('session', jsondata.email)
+                    sessionStorage.setItem('userid', jsondata.Userid)
                     console.log(sessionStorage)
                 	this.setState({redirect: true});
                 }
