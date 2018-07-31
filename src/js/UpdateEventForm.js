@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
 import Navigation from './Navigation.js';
-import {Button} from 'react-bootstrap';
-import {FormGroup} from 'react-bootstrap';
-import {FormControl} from 'react-bootstrap';
-import {Navbar} from 'react-bootstrap';
 import './../css/CreateEvent.css';
 
 
@@ -25,7 +21,7 @@ export default class CE extends Component{
 	handleSubmit = (event) => {
 		event.preventDefault()
 		
-		fetch('http://localhost:3001/event/updateform', {
+		fetch('https://socialbackendweb.herokuapp.com/event/updateform', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -183,7 +179,7 @@ export default class CE extends Component{
 						    <label for="Des">Category:</label>
 						</div>
 						<div className="col-lg-9">  
-						<select class="form-control" name="eventcategory" disabled={this.state.disable}>
+						<select className="form-control" name="eventcategory" disabled={this.state.disable}>
 							<option>Select category</option>
 							<option>Food Event</option>
 							<option>Outdoor Event</option>

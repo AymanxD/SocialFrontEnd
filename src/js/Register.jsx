@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
 import './../css/Home.css';
 import Navigation from './Navigation'
-import Card from './card';
-import Search from './search';
-import { Button, Navbar, Nav, NavItem, NavDropdown, MenuItem, FormGroup, ControlLabel, FormControl  } from 'react-bootstrap';
+import { Button, FormGroup, FormControl  } from 'react-bootstrap';
 import './../css/Register.css';
-import DatePicker from 'react-datepicker';
-import moment from 'moment';
 import "react-datepicker/dist/react-datepicker-cssmodules.css";
-import {Link} from 'react-router-dom';
 import { Redirect } from 'react-router'
 
 export default class Home extends Component{
@@ -35,14 +30,14 @@ export default class Home extends Component{
 		data.append('interest', event.target.elements.interest.value);
 		
 		
-        fetch('http://localhost:3001/register', {
+        fetch('https://socialbackendweb.herokuapp.com/register', {
             method: 'POST',
             body: data
             })
             .then(response => response.json())
             .then((jsondata) => {
 
-                if(jsondata.message=="User added successfully. Please login.")
+                if(jsondata.message==="User added successfully. Please login.")
                 { 
                 	  this.setState({redirect: true});
                 }

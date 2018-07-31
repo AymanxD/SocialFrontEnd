@@ -43,10 +43,12 @@ export default class messages extends Component {
         <div>
             <Navigation />
             <div>
+            <h3>Events Conversations</h3><hr/>
              {this.state.eventData.map((event, key) => (
-                        <Link to={{ pathname:`/UpdateEventForm/${event["idEvent"]}`, state:{ eventID: event["idEvent"]}}}>
+                        <Link to={{ pathname:`/Chat/${event["idEvent"]}`, state:{ eventID: event["idEvent"]}}}>
                             <div class="container">
                                 <p>{event["event_name"]}</p>
+                                <hr/>
                             </div>
                         </Link>
                   ))}

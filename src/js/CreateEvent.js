@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
 import Navigation from './Navigation.js';
-import {Button} from 'react-bootstrap';
-import {FormGroup} from 'react-bootstrap';
-import {FormControl} from 'react-bootstrap';
-import {Navbar} from 'react-bootstrap';
 import './../css/CreateEvent.css';
 
 
@@ -22,7 +18,7 @@ export default class CE extends Component{
 		data.append('ecategory', event.target.elements.eventcategory.value);
 		data.append('enumber', event.target.elements.eventnumber.value);
 		
-		fetch('http://localhost:3001/events/add', {
+		fetch('https://socialbackendweb.herokuapp.com/events/add', {
             method: 'POST',
             body:  data
 		
@@ -135,7 +131,7 @@ export default class CE extends Component{
 						    <label for="Des">Category:</label>
 						</div>
 						<div className="col-lg-9">  
-						<select class="form-control" name="eventcategory">
+						<select className="form-control" name="eventcategory">
 							<option>Food Event</option>
 							<option>Outdoor Event</option>
 							<option>Technological Event</option>
