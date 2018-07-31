@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import './../css/Home.css';
 import Navigation from './Navigation'
-import Card from './card';
-import Search from './search';
-import { Button, Navbar, Nav, NavItem, NavDropdown, MenuItem, FormGroup, ControlLabel, FormControl  } from 'react-bootstrap';
+import { Button, FormGroup,FormControl  } from 'react-bootstrap';
 import './../css/Login.css';
-import {Link} from 'react-router-dom';
 import { Redirect } from 'react-router'
 
-export default class Signin extends React.Component {
+export default class Signin extends Component {
    
    constructor(props){
         super(props);
@@ -31,7 +28,7 @@ export default class Signin extends React.Component {
             .then(response => response.json())
             .then((jsondata) => {
 
-                if(jsondata.message=="Login successful")
+                if(jsondata.message==="Login successful")
                 { 
                     sessionStorage.setItem('session', jsondata.email)
                     sessionStorage.setItem('userid', jsondata.Userid)
