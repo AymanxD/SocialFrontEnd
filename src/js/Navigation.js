@@ -62,7 +62,10 @@ export default class Navigation extends Component {
                      Logout
                      </NavItem>: null}
 
-
+                            {(this.state.loggedIn) ? 
+                        <NavItem eventKey={3} href="/messages">
+                            My Messages
+                        </NavItem>:null}
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

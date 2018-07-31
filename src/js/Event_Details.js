@@ -3,6 +3,7 @@ import '../css/Event_Details.css';
 import Navigation from './Navigation'
 import {Link} from 'react-router-dom';
 import Geocode from "react-geocode";
+import {TwitterShareButton, TwitterIcon} from 'react-share';
 
 export default class Event_Details extends Component {
 	constructor(props) {
@@ -10,8 +11,11 @@ export default class Event_Details extends Component {
         this.state = {
 			jsondata:[],
 			lat: 0,
-			lng: 0
+			lng: 0,
+            shareURL: ""
         };
+
+        this.getEventDetails = this.getEventDetails.bind(this);
 	}
 	
 	 componentDidMount(){
@@ -41,8 +45,24 @@ export default class Event_Details extends Component {
 			.catch((error) => {
 				console.error(error);
 			})
+         let url = window.location.href;
+         let id = url.substring(url.lastIndexOf('/') + 1);
+         this.getEventDetails(id);
+
+         this.setState({shareURL: url});
 	 }
 
+    getEventDetails = (eventID) => {
+        fetch(`http://localhost:3001/events/view/${eventID}`)
+            .then(response => response.json())
+            .then(jsondata => {
+                this.setState({jsondata});
+                //
+            })
+            .catch((error) => {
+                console.error(error);
+            })
+    };
 
 
 	 handleSubmit = (event) => {
@@ -66,7 +86,10 @@ export default class Event_Details extends Component {
             });
 	};
 
-	render() {
+// <input type="button" className="register btn btn-default childs" value=" Share Event " onClick="location.href='#'"/>
+
+
+    render() {
 		return (
 		<div>
 		  <Navigation/>	
@@ -83,7 +106,7 @@ export default class Event_Details extends Component {
                                     </div>
                                     <div className="col-sm-5">
                                     <div className="form-group">
-                                            <input type="button" className="register btn btn-default childs" value=" Share Event "/>
+										<TwitterShareButton url={this.state.shareURL}><TwitterIcon round={true}/></TwitterShareButton>
                                      </div>
                                 </div>
                         </div>   
@@ -106,7 +129,7 @@ export default class Event_Details extends Component {
 									<button className="register btn btn-default" type="submit">Register For Event</button>
 								</div>
 						</div>
-						
+
 						         
 		  			</div>
 		  		</div>
