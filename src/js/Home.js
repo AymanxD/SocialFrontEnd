@@ -34,10 +34,6 @@ export default class Home extends Component{
                 // handle error
                 console.log(error);
             })
-            .then(() => {
-                //console.log(this.state.eventData)
-                //console.log(this.state.eventData[0]["event_name"])
-            });
     }
 
     render(){

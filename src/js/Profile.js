@@ -4,7 +4,6 @@ import './../css/Profile.css';
 import axios from 'axios';
 import './../css/Home.css';
 import Card from './card';
-import UpdateEventForm from './UpdateEventForm';
 
 import {Link} from 'react-router-dom';
 
@@ -192,14 +191,14 @@ class Profile extends Component{
                                 <div className="col-xs-3 col-sm-3 col-md-3">
                                     <div className="form-group" id="text-al">
                                     <button type="button" onClick={this.handleClick.bind(this)} 
-                                    class="btn btn-block btn-lg btn_primary">Edit</button>
+                                    className="btn btn-block btn-lg btn_primary">Edit</button>
 
 
                                     </div>
                                 </div>
                                 <div className="col-xs-3 col-sm-3 col-md-3">
                                     <div className="form-group" id="text-al">
-                                    <button type="submit" class="btn btn-block btn-lg btn_primary">Submit</button>
+                                    <button type="submit" className="btn btn-block btn-lg btn_primary">Submit</button>
                                     
                                     </div>
                                 </div>
