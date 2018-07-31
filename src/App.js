@@ -14,6 +14,7 @@ import Event_Details from './js/Event_Details';
 import Mapview from './js/Map_View';
 import Category from './js/category';
 import UpdateEventForm from './js/UpdateEventForm';
+import Chat from './js/Chat';
 
 
 
@@ -37,6 +38,7 @@ class App extends Component {
                   <Route path="/Login" component={Login}/>
                   <Route path="/Category" component={Category}/>
                   <Route path="/UpdateEventForm" component={UpdateEventForm}/>
+                  <Route path="/Chat" component={Chat}/>
               </div>
               <Footer/>
             </div>
