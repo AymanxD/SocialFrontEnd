@@ -27,7 +27,7 @@ export default class Home extends Component{
     }
 
     componentWillMount(){
-        axios.get('https://socialbackendweb.herokuapp.com/events/popular')
+        axios.get('http://localhost:3001/events/popular')
             .then((response) => {
 
                 let events = [];
@@ -43,8 +43,8 @@ export default class Home extends Component{
                 console.log(error);
             })
             .then(() => {
-                console.log(this.state.eventData)
-                console.log(this.state.eventData[0]["event_name"])
+                //console.log(this.state.eventData)
+                //console.log(this.state.eventData[0]["event_name"])
             });
     }
 

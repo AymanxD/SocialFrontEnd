@@ -8,10 +8,24 @@ import './../css/CreateEvent.css';
 
 
 export default class CE extends Component{
+    constructor(props) {
+        super(props);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.state = {
+            jsondata:[],
+            disable:true
+        };
+	}
+	
+	handleClick(e){
+
+		this.setState({disable:!this.state.disable})
+		}
+
 	handleSubmit = (event) => {
 		event.preventDefault()
 		
-		fetch('http://localhost:3001/events/add', {
+		fetch('http://localhost:3001/event/updateform', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -35,14 +49,27 @@ export default class CE extends Component{
             .catch((error) => {
                 console.error(error);
             });
-	}
+            window.location.reload(true);
+    }
+    
+    componentDidMount(){
+		fetch('http://localhost:3001/event/viewform')
+			.then(response => response.json())
+			.then(jsondata => {
+				this.setState({jsondata});
+				//console.log(this.state.jsondata);
+			})
+			.catch((error) => {
+				console.error(error);
+			})
+	 }
 	
 	render() {
 		return (
 		<div>
 		  <Navigation />	
 			<div className="formev container">
-				<h2 className="fieldheads title">Create An Event</h2>
+				<h2 className="fieldheads title">Event Details</h2><hr/>
 				<form onSubmit={this.handleSubmit}>
 				  <div className="form-group">
 				  	<div className="row">
@@ -50,7 +77,9 @@ export default class CE extends Component{
 						    <label for="Event_Name" >Event Title:</label>
 						</div>
 						<div className="col-lg-9">
-						    <input type="text" className="form-control" name="eventname" required/>
+                        {this.state.jsondata.map(datas => 
+							<input type="text" className="form-control" name="eventname" 
+							placeholder={datas.event_name} disabled={this.state.disable} required/>)}
 					    </div>
 					</div>   
 				  </div>
@@ -61,7 +90,9 @@ export default class CE extends Component{
 						    <label for="D&T">Event Description:</label>
 						</div>
 						<div className="col-lg-9">
-						    <input type="text" className="form-control" name="eventdescriptiion" required/>
+                        {this.state.jsondata.map(datas => 
+							<input type="text" className="form-control" name="eventdescriptiion"
+							 placeholder={datas.event_description} disabled={this.state.disable} required/>)}
 					    </div>
 					</div>   
 				  </div>
@@ -72,7 +103,9 @@ export default class CE extends Component{
 						    <label for="Venue">Venue:</label>
 						</div>
 						<div className="col-lg-9">
-						    <input type="text" className="form-control" name="eventvenue" required/>
+                        {this.state.jsondata.map(datas => 
+							<input type="text" className="form-control" name="eventvenue"
+							 placeholder={datas.event_address} disabled={this.state.disable} required/>)}
 					    </div>
 					</div>   
 				  </div>
@@ -83,7 +116,9 @@ export default class CE extends Component{
 						    <label for="Des">Event Date:</label>
 						</div>
 						<div className="col-lg-9">
-						    <input type="date" className="form-control" name="eventdate" required/>
+                        {this.state.jsondata.map(datas => 
+							<input type="date" className="form-control" name="eventdate"
+							 placeholder={datas.event_date} disabled={this.state.disable} required/>)}
 					    </div>
 					</div>   
 				  </div>
@@ -94,7 +129,9 @@ export default class CE extends Component{
 						    <label for="Des">Start Time:</label>
 						</div>
 						<div className="col-lg-9">
-						    <input type="time" className="form-control" name="eventstime" required/>
+                        {this.state.jsondata.map(datas => 
+							<input type="time" className="form-control" name="eventstime"
+							 placeholder={datas.start_time} disabled={this.state.disable} required/>)}
 					    </div>
 					</div>   
 				</div>
@@ -105,7 +142,9 @@ export default class CE extends Component{
 						    <label for="Des">End Time:</label>
 						</div>
 						<div className="col-lg-9">
-						    <input type="time" className="form-control" name="eventetime" required/>
+                        {this.state.jsondata.map(datas => 
+							<input type="time" className="form-control" name="eventetime" 
+							placeholder={datas.end_time} disabled={this.state.disable} required/>)}
 					    </div>
 					</div>   
 				</div>
@@ -116,8 +155,9 @@ export default class CE extends Component{
 						    <label for="Des">Number of Seats</label>
 						</div>
 						<div className="col-lg-9">
-						    <input type="number" className="form-control" name="eventseats" required/>
-					    </div>
+                        {this.state.jsondata.map(datas => 
+							<input type="number" className="form-control" name="eventseats" 
+							placeholder={datas.event_seat} disabled={this.state.disable} required/>)}
 					</div>   
 				</div>
 
@@ -127,7 +167,9 @@ export default class CE extends Component{
 						    <label for="UP">Upload Photos:</label>
 						</div>
 						<div className="col-lg-9">
-						<input type="text" className="form-control" name="eventimage" required/>
+                        {this.state.jsondata.map(datas => 
+						<input type="text" className="form-control" name="eventimage" 
+						placeholder={datas.event_image} disabled={this.state.disable} required/>)}
 						
 						    {/* <input type="file" id="UP" className="btn button"/> */}
 					    </div>
@@ -139,7 +181,9 @@ export default class CE extends Component{
 						    <label for="Des">Category:</label>
 						</div>
 						<div className="col-lg-9">
-						    <input type="text" className="form-control" name="eventcategory" required/>
+                        {this.state.jsondata.map(datas => 
+							<input type="text" className="form-control" name="eventcategory" 
+							placeholder={datas.category_name} disabled={this.state.disable} required/>)}
 					    </div>
 					</div>   
 				  </div> 
@@ -150,13 +194,16 @@ export default class CE extends Component{
 						    <label for="PN">Phone Number:</label>
 						</div>
 						<div className="col-lg-9">
-						    <input type="text" className="form-control" name="eventnumber" required/>
+                        {this.state.jsondata.map(datas => 
+							<input type="text" className="form-control" name="eventnumber" 
+							placeholder={datas.event_contact} disabled={this.state.disable} required/>)}
 					    </div>
 					</div>   
 				  </div>
-
+				  <br/>
+				  <button type="button" className="btn button"  onClick={this.handleClick.bind(this)}>Edit</button> &ensp; &ensp; 
 				  <button type="submit" className="btn button">Submit</button>
-				  
+				  </div>
 				</form>
 				
 			</div>
