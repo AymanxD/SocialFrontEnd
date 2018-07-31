@@ -4,41 +4,54 @@ import Navigation from './Navigation'
 import Card from './card';
 import Search from './search';
 import { Button, Navbar, Nav, NavItem, NavDropdown, MenuItem, FormGroup, ControlLabel, FormControl  } from 'react-bootstrap';
-
 import './../css/Register.css';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import "react-datepicker/dist/react-datepicker-cssmodules.css";
+import {Link} from 'react-router-dom';
+import { Redirect } from 'react-router'
 
 export default class Home extends Component{
 
-  handleSubmit = (e) => {
-		e.preventDefault()
+ constructor(props){
+        super(props);
+		 this.state = { redirect: false};
+    }
+    
+  handleSubmit = (event) => {
+        event.preventDefault()
+        
+        let data = new FormData();
 
+        data.append('file', event.target.elements.image.files[0]);
+		data.append('email', event.target.elements.email.value);
+		data.append('password', event.target.elements.password.value);
+		data.append('repassword', event.target.elements.repassword.value);
+		data.append('bdate', event.target.elements.date.value);
+		data.append('name', event.target.elements.name.value);
+		data.append('address', event.target.elements.address.value);
+		data.append('location', event.target.elements.location.value);
+		data.append('phonenumber', event.target.elements.phonenumber.value);
+		data.append('interest', event.target.elements.interest.value);
+		
+		
         fetch('http://localhost:3001/register', {
             method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-            	email: e.target.elements.email.value,
-            	password: e.target.elements.password.value,
-            	date: e.target.elements.date.value,
-            	repassword: e.target.elements.repassword.value,
-            	name: e.target.elements.name.value,
-            	address: e.target.elements.address.value,
-            	location: e.target.elements.location.value,
-            	phonenumber: e.target.elements.phonenumber.value,
-            	interest: e.target.elements.interest.value
-            }),
+            body: data
             })
             .then(response => response.json())
-            .then(jsondata => alert(jsondata.message))
+            .then((jsondata) => {
+
+                if(jsondata.message=="User added successfully. Please login.")
+                { 
+                	  this.setState({redirect: true});
+                }
+                else{
+                alert(jsondata.message); }
+            })
             .catch((error) => {
                 console.error(error);
             });
-
     }
 
   
@@ -61,20 +74,22 @@ export default class Home extends Component{
           <br />
           <FormControl  type="text" placeholder="Enter Name" name="name" required/>
           <br />
-		<FormControl  type="date"  name="date"/>
-		<br/>
-		<FormControl  type="text" placeholder="Address" name="address"/>
+          <FormControl type="file" name="image" accept="image/*" className="btn button" required />
+          <br />
+          <FormControl  type="date"  name="date"/>
+          <br/>
+		  <FormControl  type="text" placeholder="Address" name="address"/>
           <br />
           <FormControl  type="text" placeholder="Phone number" name="phonenumber" required/>
           <br />
            <FormControl  type="text" placeholder="Location" name="location" required/>
           <br />
            <FormControl  type="text" placeholder="Interest" name="interest" required/>
-
           <br />
           <FormControl.Feedback />
         </FormGroup>
         <Button type="submit" className="button_col" bsSize="large" block>Register</Button>
+        {this.state.redirect && (<Redirect to={'/Login'}/>)}
       </form>
          </div>
            </div>

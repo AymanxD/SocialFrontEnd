@@ -21,6 +21,8 @@ export default class Category extends Component{
         const { category } = this.props.location.state;
 
         axios.get(`http://localhost:3001/events/${category}`)
+        //console.log(category);
+        axios.get(`events/${category}`)
             .then((response) => {
 
                 let events = [];
@@ -36,7 +38,7 @@ export default class Category extends Component{
                 console.log(error);
             })
             .then(() => {
-                console.log(this.state.eventData);
+                //console.log(this.state.eventData);
                 // console.log(this.state.eventData[0]["event_name"])
             });
     }

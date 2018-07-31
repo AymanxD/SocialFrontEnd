@@ -10,8 +10,8 @@ export default class Event_Details extends Component {
         this.state = {
             jsondata:[]
         };
-    }
-
+	}
+	
 	 componentDidMount(){
 
 		//console.log( this.props.location.state)
@@ -21,22 +21,47 @@ export default class Event_Details extends Component {
 			.then(response => response.json())
 			.then(jsondata => {
 				this.setState({jsondata});
-				// console.log(this.state.jsondata);
+				//
 			})
 			.catch((error) => {
 				console.error(error);
 			})
 	 }
 
+
+	 handleSubmit = (event) => {
+		event.preventDefault();
+		//console.log(this.state.jsondata[0].idEvent);
+		fetch('http://localhost:3001/events/register', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                UserID: "72",
+				EventID: this.state.jsondata[0].idEvent,
+            }),
+		}) 
+            .then(response => response.json())
+            .then(jsondata => alert(jsondata.message))
+            .catch((error) => {
+                console.error(error);
+            });
+	};
+
 	render() {
 		return (
 		<div>
 		  <Navigation/>	
 		  	<div className="container">
+			  <form onSubmit={this.handleSubmit}>
 		  			<div className="container-event">
 		  				<div id="wrapper" className="row">
 		  					<div className="col-xs-12 col-sm-6">
-		  						<img src={image1} alt="Event Picture" className="img-responsive"/>
+							  {this.state.jsondata.map(datas =>
+								  <img className="img-responsive" key={datas.idEvent} src={datas.event_image} alt="Event Picture" ></img>	)}
+		  						{/* <img src={image1} alt="Event Picture" className="img-responsive"/> */}
 		  						<div className="row socialbtn">
                                     <div className="col-sm-5">
                                     <input type="button" class="register btn btn-default childs" value="Send Message" onclick="location.href='#'"/>
@@ -63,12 +88,13 @@ export default class Event_Details extends Component {
 								<br/><br/>
 			  					<h4 className="price">Ticket Price: <span>Free</span></h4><br/>
 			  					<div className="action">
-									<button className="register btn btn-default" type="button">Register For Event</button>
+									<button className="register btn btn-default" type="submit">Register For Event</button>
 								</div>
 						</div>
 						         
 		  			</div>
 		  		</div>
+			 </form>
 		  	</div>
 		</div>	
 		);
