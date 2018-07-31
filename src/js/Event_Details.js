@@ -59,7 +59,9 @@ export default class Event_Details extends Component {
 		  			<div className="container-event">
 		  				<div id="wrapper" className="row">
 		  					<div className="col-xs-12 col-sm-6">
-		  						<img src={image1} alt="Event Picture" className="img-responsive"/>
+							  {this.state.jsondata.map(datas =>
+								  <img className="img-responsive" key={datas.idEvent} src={datas.event_image} alt="Event Picture" ></img>	)}
+		  						{/* <img src={image1} alt="Event Picture" className="img-responsive"/> */}
 		  						<div className="row socialbtn">
                                     <div className="col-sm-5">
                                     <input type="button" class="register btn btn-default childs" value="Send Message" onclick="location.href='#'"/>
