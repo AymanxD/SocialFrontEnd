@@ -3,6 +3,7 @@ import '../css/Event_Details.css';
 import Navigation from './Navigation'
 import image1 from '../images/image1.jpg';
 import {Link} from 'react-router-dom';
+import messages from './messages';
 
 export default class Event_Details extends Component {
 	constructor(props) {
@@ -64,7 +65,10 @@ export default class Event_Details extends Component {
 		  						{/* <img src={image1} alt="Event Picture" className="img-responsive"/> */}
 		  						<div className="row socialbtn">
                                     <div className="col-sm-5">
-                                    <input type="button" class="register btn btn-default childs" value="Send Message" onclick="location.href='#'"/>
+									<Link to={{ pathname:`/messages/`}}>
+                            
+                                    <input type="button" class="register btn btn-default childs" value="Send Message"/>
+									</Link>
                                     </div>
                                     <div className="col-sm-5">
                                     <div className="form-group">
