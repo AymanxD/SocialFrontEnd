@@ -93,8 +93,8 @@ class Profile extends Component{
                      <h1> Profile Page</h1>
                      <div className="row">
                             <div className="col" align="center">
-
-                            <img id="avatar" name = "image" className="img-responsive" src={require('../images/profile.jpg')} alt="profile img" />
+                            {this.state.jsondata.map(datas => 
+                            <img id="avatar" name = "image" className="img-responsive" src={datas.user_image} alt="profile img" />)}
 
                             </div>
                         </div>

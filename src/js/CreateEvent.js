@@ -10,30 +10,28 @@ import './../css/CreateEvent.css';
 export default class CE extends Component{
 	handleSubmit = (event) => {
 		event.preventDefault()
+		let data = new FormData();
+		data.append('file', event.target.elements.image.files[0]);
+		data.append('name', event.target.elements.eventname.value);
+		data.append('desc', event.target.elements.eventdescriptiion.value);
+		data.append('venue', event.target.elements.eventvenue.value);
+		data.append('edate', event.target.elements.eventdate.value);
+		data.append('estime', event.target.elements.eventstime.value);
+		data.append('eetime', event.target.elements.eventetime.value);
+		data.append('eseat', event.target.elements.eventseats.value);
+		data.append('ecategory', event.target.elements.eventcategory.value);
+		data.append('enumber', event.target.elements.eventnumber.value);
 		
 		fetch('http://localhost:3001/events/add', {
             method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                name: event.target.elements.eventname.value,
-				desc: event.target.elements.eventdescriptiion.value,
-				venue: event.target.elements.eventvenue.value,
-				edate: event.target.elements.eventdate.value,
-				estime: event.target.elements.eventstime.value,
-				eetime: event.target.elements.eventetime.value,
-				eseat: event.target.elements.eventseats.value,
-				ephoto: event.target.elements.eventimage.value,
-				ecategory: event.target.elements.eventcategory.value,
-				enumber: event.target.elements.eventnumber.value,
-            }),
+            body:  data
+		
         })
             .then(response => response.json())
             .then(jsondata => alert(jsondata.message))
             .catch((error) => {
-                console.error(error);
+				console.log(event.target)
+				console.error(error);
             });
 	}
 	
@@ -43,7 +41,7 @@ export default class CE extends Component{
 		  <Navigation />	
 			<div className="formev container">
 				<h2 className="fieldheads title">Create An Event</h2>
-				<form onSubmit={this.handleSubmit}>
+				<form onSubmit={this.handleSubmit} encType="multipart/form-data">
 				  <div className="form-group">
 				  	<div className="row">
 				  		<div className="col-lg-3">
@@ -127,9 +125,7 @@ export default class CE extends Component{
 						    <label for="UP">Upload Photos:</label>
 						</div>
 						<div className="col-lg-9">
-						<input type="text" className="form-control" name="eventimage" required/>
-						
-						    {/* <input type="file" id="UP" className="btn button"/> */}
+						<input type="file" id="image" name="image"  accept="image/*" className="btn button" required/>
 					    </div>
 					</div>   
 				  </div>
@@ -138,8 +134,17 @@ export default class CE extends Component{
 				  		<div className="col-lg-3">
 						    <label for="Des">Category:</label>
 						</div>
-						<div className="col-lg-9">
-						    <input type="text" className="form-control" name="eventcategory" required/>
+						<div className="col-lg-9">  
+						<select class="form-control" name="eventcategory">
+							<option>Food Event</option>
+							<option>Outdoor Event</option>
+							<option>Technological Event</option>
+							<option>Community Event</option>
+							<option>Fashion Event</option>
+							<option>Travel Event</option>
+							<option>Art Event</option>
+							<option>Others</option>
+						</select>
 					    </div>
 					</div>   
 				  </div> 
