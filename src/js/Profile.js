@@ -53,7 +53,7 @@ class Profile extends Component{
 	}
 	 componentWillMount(){
 
-		fetch("https://socialbackendweb.herokuapp.com/view/userid/" + sessionStorage.getItem('userid'))
+		fetch("https://socialbackendweb.herokuapp.com/profile/view/userid/" + sessionStorage.getItem('userid'))
 			.then(response => response.json())
 			.then(jsondata => {
 				this.setState({jsondata});

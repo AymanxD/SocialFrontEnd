@@ -10,7 +10,7 @@ import { appendFile } from 'fs';
 
 export default class Chat extends Component{
     constructor(props){
-        super(props)
+        super(props);
         this.addMessage = this.addMessage.bind(this);
     this.state ={
        jsondata:[],
@@ -34,7 +34,7 @@ export default class Chat extends Component{
 			.catch((error) => {
 				console.error(error);
 			})
-    }
+    };
 
     addMessage = (event) => {
         event.preventDefault();
