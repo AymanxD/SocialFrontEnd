@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Navigation from './Navigation'
-//import './../css/event_messages.css';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 
