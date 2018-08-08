@@ -10,7 +10,7 @@ import { appendFile } from 'fs';
 
 export default class Chat extends Component{
     constructor(props){
-        super(props)
+        super(props);
         this.addMessage = this.addMessage.bind(this);
     this.state ={
        jsondata:[],
@@ -34,13 +34,14 @@ export default class Chat extends Component{
 			.catch((error) => {
 				console.error(error);
 			})
-    }
+    };
 
     addMessage = (event) => {
         event.preventDefault();
         console.log(event.target.elements);
-		
-		fetch('https://socialbackendweb.herokuapp.com/messages/add', {
+        console.log("hello");
+
+        fetch('https://socialbackendweb.herokuapp.com/messages/add', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -48,19 +49,19 @@ export default class Chat extends Component{
             },
             body: JSON.stringify({
                 
-				
                 chat_message: event.target.elements.message.value,
                 idEvent: event.target.elements.eventid.value,
 
                 idEvent: this.state.jsondata[0].idEvent,
             }),
         })
-            .then(response => response.json())
+            .then(response => {
+                this.getMessages();
+            })
             .catch((error) => {
                 console.error(error);
             });
-            window.location.reload(true);
-    }
+    };
 
 
 	render() {

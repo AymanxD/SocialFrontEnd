@@ -49,7 +49,7 @@ export default class CE extends Component{
     }
     
     componentDidMount(){
-		fetch('http://localhost:3001/event/viewform')
+		fetch('https://socialbackendweb.herokuapp.com/event/viewform')
 			.then(response => response.json())
 			.then(jsondata => {
 				this.setState({jsondata});

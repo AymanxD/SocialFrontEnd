@@ -19,9 +19,7 @@ export default class Category extends Component{
     componentDidMount(){
         const { category } = this.props.location.state;
 
-        axios.get(`https://socialbackendweb.herokuapp.com/events/${category}`);
-        //console.log(category);
-        axios.get(`events/${category}`)
+        axios.get(`https://socialbackendweb.herokuapp.com/events/${category}`)
             .then((response) => {
 
                 let events = [];
@@ -46,7 +44,7 @@ export default class Category extends Component{
                 <div className="popularCards">
                     {this.state.eventData.map((event, key) => (
                         <Link to={{ pathname:`/Event_Details/${event["idEvent"]}`, state:{ eventID: event["idEvent"]}}}>
-                            <Card key={key} image={event["event_name"]} event={event["event_name"]} description={event["event_description"]}/>
+                            <Card key={key} image={event["event_image"]} event={event["event_name"]} description={event["event_description"]}/>
                         </Link>
                     ))}
                 </div>
