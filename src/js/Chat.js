@@ -39,8 +39,9 @@ export default class Chat extends Component{
     addMessage = (event) => {
         event.preventDefault();
         console.log(event.target.elements);
-		
-		fetch('https://socialbackendweb.herokuapp.com/messages/add', {
+        console.log("hello");
+
+        fetch('https://socialbackendweb.herokuapp.com/messages/add', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -48,7 +49,6 @@ export default class Chat extends Component{
             },
             body: JSON.stringify({
                 
-				console.log("hello")
                 chat_message: event.target.elements.message.value,
                 idEvent: event.target.elements.eventid.value,
 
