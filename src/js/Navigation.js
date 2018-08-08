@@ -27,7 +27,7 @@ export default class Navigation extends Component {
 
         handleLogout(){
             
-            fetch('https://socialbackendweb.herokuapp.com/logout', {
+            fetch('http://localhost:3001/logout', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -40,7 +40,7 @@ export default class Navigation extends Component {
             .then(response => response.json())
             .then((jsondata) => {
 				console.log(jsondata);
-                if(jsondata.message=="Logged out!!")
+                if(jsondata.message==="Logged out!!")
                 { 
            	 	sessionStorage.clear(); 
             	this.setState({loggedIn: false});

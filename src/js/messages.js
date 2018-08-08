@@ -17,13 +17,14 @@ export default class messages extends Component {
     }
 
     componentDidMount(){  
-                axios.get('https://socialbackendweb.herokuapp.com/event/viewcard')
+                axios.get('http://localhost:3001/mymessages/list')
                 .then((response) => {
     
                     let events = [];
                     for(let i = 0; i < response.data.length; i++){
                         events.push(response.data[i])
                     }
+                    console.log(response)
                     this.setState({
                         eventData: events
                     })

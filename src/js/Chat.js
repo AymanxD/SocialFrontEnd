@@ -25,7 +25,7 @@ export default class Chat extends Component{
 
     getMessages = _ => {
         const { eventID } = this.props.location.state;
-        fetch(`https://socialbackendweb.herokuapp.com/messages/view/${eventID}`)
+        fetch(`http://localhost:3001/messages/view/${eventID}`)
         .then(response => response.json())
 			.then(jsondata => {
 				this.setState({jsondata});
@@ -40,7 +40,7 @@ export default class Chat extends Component{
         event.preventDefault();
         console.log(event.target.elements);
 		
-		fetch('https://socialbackendweb.herokuapp.com/messages/add', {
+		fetch('http://localhost:3001/messages/add', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',

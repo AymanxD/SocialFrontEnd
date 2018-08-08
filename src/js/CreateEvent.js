@@ -18,7 +18,7 @@ export default class CE extends Component{
 		data.append('ecategory', event.target.elements.eventcategory.value);
 		data.append('enumber', event.target.elements.eventnumber.value);
 		
-		fetch('https://socialbackendweb.herokuapp.com/events/add', {
+		fetch('http://localhost:3001/events/add', {
             method: 'POST',
             body:  data
 		

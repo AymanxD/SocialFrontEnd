@@ -32,7 +32,7 @@ export default class FullSearch extends Component {
             console.log('latitude', position.coords.latitude,
                 'longitude', position.coords.longitude);
 
-            let url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + position.coords.latitude +
+            let url = "http://maps.googleapis.com/maps/api/geocode/json?latlng=" + position.coords.latitude +
                 ","+ position.coords.longitude + "&key=AIzaSyDL_DjnE9q6JJsh0XYeIY_gBnEwqshp2_0";
 
             fetch(url)
@@ -63,7 +63,7 @@ export default class FullSearch extends Component {
 
         let { search } = this.props.location.state;
 
-        axios.get(`https://socialbackendweb.herokuapp.com/events/search/${search}`)
+        axios.get(`http://localhost:3001/events/search/${search}`)
             .then((response) => {
 
                 let events = [];
@@ -85,7 +85,7 @@ export default class FullSearch extends Component {
 
     search(){
         console.log(this.state.searchKey);
-        axios.get(`https://socialbackendweb.herokuapp.com/events/search/${this.state.searchKey}`)
+        axios.get(`http://localhost:3001/events/search/${this.state.searchKey}`)
             .then((response) => {
 
                 let events = [];
