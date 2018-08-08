@@ -55,7 +55,9 @@ export default class Chat extends Component{
                 idEvent: this.state.jsondata[0].idEvent,
             }),
         })
-            .then(response => response.json())
+            .then(response => {
+                this.getMessages();
+            })
             .catch((error) => {
                 console.error(error);
             });
