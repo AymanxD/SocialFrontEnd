@@ -27,7 +27,7 @@ export default class Navigation extends Component {
 
         handleLogout(){
             
-            fetch('http://socialbackendweb.herokuapp.com/logout', {
+            fetch('https://socialbackendweb.herokuapp.com/logout', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',

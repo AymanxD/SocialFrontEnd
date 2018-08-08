@@ -21,7 +21,7 @@ export default class CE extends Component{
 	handleSubmit = (event) => {
 		event.preventDefault()
 		
-		fetch('http://socialbackendweb.herokuapp.com/event/updateform', {
+		fetch('https://socialbackendweb.herokuapp.com/event/updateform', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -49,7 +49,7 @@ export default class CE extends Component{
     }
     
     componentDidMount(){
-		fetch('http://socialbackendweb.herokuapp.com/event/viewform')
+		fetch('https://socialbackendweb.herokuapp.com/event/viewform')
 			.then(response => response.json())
 			.then(jsondata => {
 				this.setState({jsondata});
