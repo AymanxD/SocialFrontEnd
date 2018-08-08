@@ -12,9 +12,9 @@ export default class Signin extends Component {
 		 this.state = { redirect: false};
     }
     handleSubmit = (e) => {
-		e.preventDefault()
+		e.preventDefault();
 
-        fetch('http://socialbackendweb.herokuapp.com/login', {
+        fetch('https://socialbackendweb.herokuapp.com/login', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
