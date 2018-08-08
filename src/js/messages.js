@@ -17,7 +17,7 @@ export default class messages extends Component {
     }
 
     componentDidMount(){  
-                axios.get('http://socialbackendweb.herokuapp.com/mymessages/list')
+                axios.get('https://socialbackendweb.herokuapp.com/mymessages/list')
                 .then((response) => {
     
                     let events = [];

@@ -20,7 +20,7 @@ export default class SearchResults extends Component{
     componentDidMount(){
         const { search } = this.props.location.state;
         console.log(search);
-        axios.get(`http://socialbackendweb.herokuapp.com/events/search/${search}`)
+        axios.get(`https://socialbackendweb.herokuapp.com/events/search/${search}`)
             .then((response) => {
 
                 let events = [];
