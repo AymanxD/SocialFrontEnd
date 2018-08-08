@@ -28,7 +28,7 @@ class Profile extends Component{
 
     handleSubmit = (event) => {
 
-		fetch('http://localhost:3001/profile/edit', {
+		fetch('http://socialbackendweb.herokuapp.com/profile/edit', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -53,13 +53,13 @@ class Profile extends Component{
 	}
 	 componentWillMount(){
 
-		fetch("http://localhost:3001/view/userid/" + sessionStorage.getItem('userid'))
+		fetch("http://socialbackendweb.herokuapp.com/view/userid/" + sessionStorage.getItem('userid'))
 			.then(response => response.json())
 			.then(jsondata => {
 				this.setState({jsondata});
                 //console.log(this.state.jsondata);
                 console.log(sessionStorage.getItem('userid'));
-                axios.get('http://localhost:3001/event/viewcard')
+                axios.get('http://socialbackendweb.herokuapp.com/event/viewcard')
                 .then((response) => {
     
                     let events = [];

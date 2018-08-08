@@ -30,7 +30,7 @@ export default class Home extends Component{
 		data.append('interest', event.target.elements.interest.value);
 		
 		
-        fetch('http://localhost:3001/register', {
+        fetch('http://socialbackendweb.herokuapp.com/register', {
             method: 'POST',
             body: data
             })
