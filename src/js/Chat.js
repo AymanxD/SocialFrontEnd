@@ -48,7 +48,7 @@ export default class Chat extends Component{
             },
             body: JSON.stringify({
                 
-				
+				console.log("hello")
                 chat_message: event.target.elements.message.value,
                 idEvent: event.target.elements.eventid.value,
 
