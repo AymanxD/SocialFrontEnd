@@ -59,8 +59,8 @@ export default class Chat extends Component{
             .catch((error) => {
                 console.error(error);
             });
-            window.location.reload(true);
-    }
+            // window.location.reload(true);
+    };
 
 
 	render() {
