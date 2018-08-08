@@ -140,7 +140,7 @@ export default class FullSearch extends Component {
                 <div className="popularCards" id="searchResults">
                     {this.state.searchedData.map((event, key) => (
                         <Link to={{ pathname:`/Event_Details/${event["idEvent"]}`, state:{ eventID: event["idEvent"]}}}>
-                            <Card key={key} image={event["event_name"]} event={event["event_name"]} description={event["event_description"]}/>
+                            <Card key={key} image={event["event_image"]} event={event["event_name"]} description={event["event_description"]}/>
                         </Link>
                     ))}
                 </div>
