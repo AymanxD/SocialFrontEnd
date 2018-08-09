@@ -41,7 +41,7 @@ export default class Chat extends Component{
         console.log(event.target.elements);
         console.log("hello");
 
-        fetch('https://socialbackendweb.herokuapp.com/messages/add', {
+        fetch('http://localhost:3000/messages/add', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
