@@ -18,7 +18,7 @@ export default class CE extends Component{
 		data.append('eseat', event.target.elements.eventseats.value);
 		data.append('ecategory', event.target.elements.eventcategory.value);
 		data.append('enumber', event.target.elements.eventnumber.value);
-		data.append('userid', sessionStorage.getItem('userid'));
+		data.append('UserId', sessionStorage.getItem('userid'));
 		
 		fetch('http://localhost:3000/events/add', {
             method: 'POST',

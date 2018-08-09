@@ -41,8 +41,6 @@ class Profile extends Component{
 				Interests: event.target.elements.interests.value,
 				email: event.target.elements.email.value,
 				contact: event.target.elements.number.value,
-                password: event.target.elements.password.value,
-                User_id: sessionStorage.getItem('userid'),
             }),
             })
             .then(response => response.json())
