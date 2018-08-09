@@ -14,7 +14,7 @@ export default class Signin extends Component {
     handleSubmit = (e) => {
 		e.preventDefault();
 
-        fetch('https://socialbackendweb.herokuapp.com/login', {
+        fetch('http://localhost:3001/login', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',

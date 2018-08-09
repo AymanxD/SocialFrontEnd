@@ -23,7 +23,7 @@ export default class Event_Details extends Component {
 		//console.log( this.props.location.state)
 		const { eventID } = this.props.location.state;
 		//console.log(eventID);
-		fetch(`https://socialbackendweb.herokuapp.com/events/view/${eventID}`)
+		fetch(`http://localhost:3001/events/view/${eventID}`)
 			.then(response => response.json())
 			.then(jsondata => {
 				this.setState({jsondata});
@@ -53,7 +53,7 @@ export default class Event_Details extends Component {
 	 }
 
     getEventDetails = (eventID) => {
-        fetch(`https://socialbackendweb.herokuapp.com/events/view/${eventID}`)
+        fetch(`http://localhost:3001/events/view/${eventID}`)
             .then(response => response.json())
             .then(jsondata => {
                 this.setState({jsondata});
@@ -68,7 +68,7 @@ export default class Event_Details extends Component {
 	 handleSubmit = (event) => {
 		event.preventDefault();
 		//console.log(this.state.jsondata[0].idEvent);
-		fetch('https://socialbackendweb.herokuapp.com/events/register', {
+		fetch('http://localhost:3001/events/register', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
