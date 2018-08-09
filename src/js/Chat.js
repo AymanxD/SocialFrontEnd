@@ -39,8 +39,9 @@ export default class Chat extends Component{
     addMessage = (event) => {
         event.preventDefault();
         console.log(event.target.elements);
-		
-		fetch('http://localhost:3001/messages/add', {
+        console.log("hello");
+
+        fetch('http://localhost:3000/messages/add', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',

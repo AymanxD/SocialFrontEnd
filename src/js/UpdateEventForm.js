@@ -21,7 +21,7 @@ export default class CE extends Component{
 	handleSubmit = (event) => {
 		event.preventDefault()
 		
-		fetch('http://localhost:3001/event/updateform', {
+		fetch('http://localhost:3000/event/updateform', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -49,15 +49,16 @@ export default class CE extends Component{
     }
     
     componentDidMount(){
-		fetch('https://socialbackendweb.herokuapp.com/event/viewform')
-			.then(response => response.json())
-			.then(jsondata => {
-				this.setState({jsondata});
-				//console.log(this.state.jsondata);
-			})
-			.catch((error) => {
-				console.error(error);
-			})
+		const { eventID } = this.props.location.state;
+		fetch(`http://localhost:3000/events/view/${eventID}`)
+            .then(response => response.json())
+            .then(jsondata => {
+                this.setState({jsondata});
+                //
+            })
+            .catch((error) => {
+                console.error(error);
+            })
 	 }
 
 	

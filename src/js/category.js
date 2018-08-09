@@ -19,9 +19,7 @@ export default class Category extends Component{
     componentDidMount(){
         const { category } = this.props.location.state;
 
-        axios.get(`http://localhost:3001/events/${category}`);
-        //console.log(category);
-        axios.get(`events/${category}`)
+        axios.get(`http://localhost:3000/${category}`)
             .then((response) => {
 
                 let events = [];
