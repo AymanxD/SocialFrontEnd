@@ -25,7 +25,8 @@ export default class Chat extends Component{
 
     getMessages = _ => {
         const { eventID } = this.props.location.state;
-        const {userid}= sessionStorage.getItem('userid');
+        const userid = sessionStorage.getItem('userid');
+        console.log(userid);
         fetch(`http://localhost:3001/messages/view/${eventID}/${userid}/`)
         .then(response => response.json())
 			.then(jsondata => {

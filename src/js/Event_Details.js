@@ -4,12 +4,14 @@ import Navigation from './Navigation'
 import {Link} from 'react-router-dom';
 import Geocode from "react-geocode";
 import {TwitterShareButton, TwitterIcon} from 'react-share';
+import { Redirect } from 'react-router'
 
 export default class Event_Details extends Component {
 	constructor(props) {
         super(props);
         this.state = {
 			jsondata:[],
+			redirect: false,
 			lat: 0,
 			lng: 0,
             shareURL: ""
@@ -67,6 +69,12 @@ export default class Event_Details extends Component {
 
 	 handleSubmit = (event) => {
 		event.preventDefault();
+		if(sessionStorage.getItem('userid')==null)
+		{
+		this.setState({redirect: true});
+		console.log("Not loggedin");
+		}
+		else {
 		//console.log(this.state.jsondata[0].idEvent);
 		fetch('http://localhost:3001/events/register', {
             method: 'POST',
@@ -84,6 +92,8 @@ export default class Event_Details extends Component {
             .catch((error) => {
                 console.error(error);
             });
+            
+            }
 	};
 
     render() {
@@ -130,7 +140,7 @@ export default class Event_Details extends Component {
 								</div>
 						</div>
 
-						         
+						          {this.state.redirect && (<Redirect to={'/login'}/>)}
 		  			</div>
 		  		</div>
 			 </form>
