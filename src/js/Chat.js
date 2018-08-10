@@ -52,8 +52,7 @@ export default class Chat extends Component{
             body: JSON.stringify({
                 
                 chat_message: event.target.elements.message.value,
-                //idEvent: event.target.elements.eventid.value,
-                idEvent: "472",
+                idEvent: this.props.location.state.eventID,
                 userid: sessionStorage.getItem('userid'), 
             }),
         })
