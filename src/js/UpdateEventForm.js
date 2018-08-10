@@ -37,7 +37,7 @@ export default class CE extends Component{
 				ephoto: event.target.elements.eventimage.value,
 				ecategory: event.target.elements.eventcategory.value,
 				enumber: event.target.elements.eventnumber.value,
-				eventid: this.props.location.state,
+				eventid: this.props.location.state.eventID,
             }),
         })
             .then(response => response.json())
@@ -45,7 +45,7 @@ export default class CE extends Component{
             .catch((error) => {
                 console.error(error);
             });
-            window.location.reload(true);
+           // window.location.reload(true);
     }
     
     componentDidMount(){
