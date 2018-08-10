@@ -28,7 +28,7 @@ class Profile extends Component{
 
     handleSubmit = (event) => {
 
-		fetch('http://localhost:3000/profile/edit', {
+		fetch('http://localhost:3001/profile/edit/', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -41,6 +41,7 @@ class Profile extends Component{
 				Interests: event.target.elements.interests.value,
 				email: event.target.elements.email.value,
 				contact: event.target.elements.number.value,
+				userid: sessionStorage.getItem('userid'),
             }),
             })
             .then(response => response.json())
@@ -52,7 +53,7 @@ class Profile extends Component{
 	}
 	 componentWillMount(){
 
-		fetch("http://localhost:3000/profile/view/userid/" + sessionStorage.getItem('userid'))
+		fetch("http://localhost:3001/profile/view/userid/" + sessionStorage.getItem('userid'))
 			.then(response => response.json())
 			.then(jsondata => {
 				this.setState({jsondata});

@@ -20,7 +20,7 @@ export default class SearchResults extends Component{
     componentDidMount(){
         const { search } = this.props.location.state;
         console.log(search);
-        axios.get(`http://localhost:3000/events/search/${search}`)
+        axios.get(`http://localhost:3001/events/search/${search}`)
             .then((response) => {
 
                 let events = [];

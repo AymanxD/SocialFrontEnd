@@ -25,7 +25,8 @@ export default class Chat extends Component{
 
     getMessages = _ => {
         const { eventID } = this.props.location.state;
-        fetch(`http://localhost:3001/messages/view/${eventID}`)
+        const {userid}= sessionStorage.getItem('userid');
+        fetch(`http://localhost:3001/messages/view/${eventID}/${userid}/`)
         .then(response => response.json())
 			.then(jsondata => {
 				this.setState({jsondata});
@@ -41,7 +42,7 @@ export default class Chat extends Component{
         console.log(event.target.elements);
         console.log("hello");
 
-        fetch('http://localhost:3000/messages/add', {
+        fetch('http://localhost:3001/messages/add', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -50,9 +51,9 @@ export default class Chat extends Component{
             body: JSON.stringify({
                 
                 chat_message: event.target.elements.message.value,
-                idEvent: event.target.elements.eventid.value,
-
-                idEvent: this.state.jsondata[0].idEvent,
+                //idEvent: event.target.elements.eventid.value,
+                idEvent: "472",
+                userid: sessionStorage.getItem('userid'), 
             }),
         })
             .then(response => {
