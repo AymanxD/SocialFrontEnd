@@ -85,6 +85,7 @@ export default class Event_Details extends Component {
             body: JSON.stringify({
                 UserID: sessionStorage.getItem('userid'),
 				EventID: this.state.jsondata[0].idEvent,
+				emailID: sessionStorage.getItem('session'),
             }),
 		}) 
             .then(response => response.json())
