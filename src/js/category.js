@@ -19,7 +19,8 @@ export default class Category extends Component{
     componentDidMount(){
         const { category } = this.props.location.state;
 
-        axios.get(`http://localhost:3001/${category}`)
+       // axios.get(`http://localhost:3001/${category}`)
+       axios.get(`https://socialbackendweb.herokuapp.com/${category}`)
             .then((response) => {
 
                 let events = [];

@@ -27,7 +27,8 @@ export default class Chat extends Component{
         const { eventID } = this.props.location.state;
         const userid = sessionStorage.getItem('userid');
         console.log(userid);
-        fetch(`http://localhost:3001/messages/view/${eventID}/${userid}/`)
+        //fetch(`http://localhost:3001/messages/view/${eventID}/${userid}/`)
+        fetch(`https://socialbackendweb.herokuapp.com/messages/view/${eventID}/${userid}/`)
         .then(response => response.json())
 			.then(jsondata => {
 				this.setState({jsondata});
@@ -43,7 +44,7 @@ export default class Chat extends Component{
         console.log(event.target.elements);
         console.log("hello");
 
-        fetch('http://localhost:3001/messages/add', {
+        fetch('https://socialbackendweb.herokuapp.com/messages/add', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
