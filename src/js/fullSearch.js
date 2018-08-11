@@ -63,7 +63,8 @@ export default class FullSearch extends Component {
 
         let { search } = this.props.location.state;
 
-        axios.get(`http://localhost:3001/events/search/${search}`)
+       // axios.get(`http://localhost:3001/events/search/${search}`)
+         axios.get(`https://socialbackendweb.herokuapp.com/events/search/${search}`)
             .then((response) => {
 
                 let events = [];
@@ -85,7 +86,9 @@ export default class FullSearch extends Component {
 
     search(){
         console.log(this.state.searchKey);
-        axios.get(`http://localhost:3001/events/search/${this.state.searchKey}`)
+        
+        //axios.get(`http://localhost:3001/events/search/${this.state.searchKey}`)
+        axios.get(`https://socialbackendweb.herokuapp.com/events/search/${this.state.searchKey}`)
             .then((response) => {
 
                 let events = [];
