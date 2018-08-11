@@ -25,7 +25,7 @@ export default class Event_Details extends Component {
 		//console.log( this.props.location.state)
 		const { eventID } = this.props.location.state;
 		//console.log(eventID);
-		//fetch(`http://localhost:3001/events/view/${eventID}`)
+		//fetch(`https://socialbackendweb.herokuapp.com/events/view/${eventID}`)
 		fetch(`https://socialbackendweb.herokuapp.com/events/view/${eventID}`)
 			.then(response => response.json())
 			.then(jsondata => {
@@ -111,10 +111,13 @@ export default class Event_Details extends Component {
 								  <img className="img-responsive" key={datas.idEvent} src={datas.event_image} ></img>	)}
 		  						<div className="row socialbtn">
                                     <div className="col-sm-5">
-									<Link to={{ pathname:`/messages/`}}>
-                            
-                                    <input type="button" class="register btn btn-default childs" value="Send Message"/>
-									</Link>
+										<div className="action">
+									{this.state.jsondata.map((event, key) => (
+                        				<Link to={{ pathname:`/Chat/${event["idEvent"]}`, state:{ eventID: event["idEvent"]}}}>
+                           				<input type="button" class="register btn btn-default childs" value="Send Message"/>
+										</Link>
+									))}
+									</div>
                                     </div>
                                     <div className="col-sm-5">
                                     <div className="form-group">

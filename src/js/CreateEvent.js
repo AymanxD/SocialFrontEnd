@@ -20,7 +20,7 @@ export default class CE extends Component{
 		data.append('enumber', event.target.elements.eventnumber.value);
 		data.append('UserId', sessionStorage.getItem('userid'));
 		
-		//fetch('http://localhost:3001/events/add', {
+		//fetch('https://socialbackendweb.herokuapp.com/events/add', {
 		fetch('https://socialbackendweb.herokuapp.com/events/add', {
             method: 'POST',
             body:  data
