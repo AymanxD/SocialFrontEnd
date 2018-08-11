@@ -32,7 +32,7 @@ export default class FullSearch extends Component {
             console.log('latitude', position.coords.latitude,
                 'longitude', position.coords.longitude);
 
-            let url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + position.coords.latitude +
+            let url = "http://maps.googleapis.com/maps/api/geocode/json?latlng=" + position.coords.latitude +
                 ","+ position.coords.longitude + "&key=AIzaSyDL_DjnE9q6JJsh0XYeIY_gBnEwqshp2_0";
 
             fetch(url)
@@ -63,7 +63,7 @@ export default class FullSearch extends Component {
 
         let { search } = this.props.location.state;
 
-        axios.get(`https://socialbackendweb.herokuapp.com/events/search/${search}`)
+        axios.get(`http://localhost:3001/events/search/${search}`)
             .then((response) => {
 
                 let events = [];
@@ -85,7 +85,7 @@ export default class FullSearch extends Component {
 
     search(){
         console.log(this.state.searchKey);
-        axios.get(`https://socialbackendweb.herokuapp.com/events/search/${this.state.searchKey}`)
+        axios.get(`http://localhost:3001/events/search/${this.state.searchKey}`)
             .then((response) => {
 
                 let events = [];
@@ -140,7 +140,7 @@ export default class FullSearch extends Component {
                 <div className="popularCards" id="searchResults">
                     {this.state.searchedData.map((event, key) => (
                         <Link to={{ pathname:`/Event_Details/${event["idEvent"]}`, state:{ eventID: event["idEvent"]}}}>
-                            <Card key={key} image={event["event_name"]} event={event["event_name"]} description={event["event_description"]}/>
+                            <Card key={key} image={event["event_image"]} event={event["event_name"]} description={event["event_description"]}/>
                         </Link>
                     ))}
                 </div>

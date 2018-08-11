@@ -3,14 +3,15 @@ import '../css/Event_Details.css';
 import Navigation from './Navigation'
 import {Link} from 'react-router-dom';
 import Geocode from "react-geocode";
-import messages from './messages';
 import {TwitterShareButton, TwitterIcon} from 'react-share';
+import { Redirect } from 'react-router'
 
 export default class Event_Details extends Component {
 	constructor(props) {
         super(props);
         this.state = {
 			jsondata:[],
+			redirect: false,
 			lat: 0,
 			lng: 0,
             shareURL: ""
@@ -24,7 +25,7 @@ export default class Event_Details extends Component {
 		//console.log( this.props.location.state)
 		const { eventID } = this.props.location.state;
 		//console.log(eventID);
-		fetch(`https://socialbackendweb.herokuapp.com/events/view/${eventID}`)
+		fetch(`http://localhost:3001/events/view/${eventID}`)
 			.then(response => response.json())
 			.then(jsondata => {
 				this.setState({jsondata});
@@ -54,7 +55,7 @@ export default class Event_Details extends Component {
 	 }
 
     getEventDetails = (eventID) => {
-        fetch(`https://socialbackendweb.herokuapp.com/events/view/${eventID}`)
+        fetch(`http://localhost:3000/events/view/${eventID}`)
             .then(response => response.json())
             .then(jsondata => {
                 this.setState({jsondata});
@@ -68,16 +69,23 @@ export default class Event_Details extends Component {
 
 	 handleSubmit = (event) => {
 		event.preventDefault();
+		if(sessionStorage.getItem('userid')==null)
+		{
+		this.setState({redirect: true});
+		console.log("Not loggedin");
+		}
+		else {
 		//console.log(this.state.jsondata[0].idEvent);
-		fetch('https://socialbackendweb.herokuapp.com/events/register', {
+		fetch('http://localhost:3001/events/register', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                UserID: "72",
+                UserID: sessionStorage.getItem('userid'),
 				EventID: this.state.jsondata[0].idEvent,
+				emailID: sessionStorage.getItem('session'),
             }),
 		}) 
             .then(response => response.json())
@@ -85,6 +93,8 @@ export default class Event_Details extends Component {
             .catch((error) => {
                 console.error(error);
             });
+            
+            }
 	};
 
     render() {
@@ -97,7 +107,7 @@ export default class Event_Details extends Component {
 		  				<div id="wrapper" className="row">
 		  					<div className="col-xs-12 col-sm-6">
 							  {this.state.jsondata.map(datas =>
-								  <img className="img-responsive" key={datas.idEvent} src={datas.event_image} alt="Event Picture" ></img>	)}
+								  <img className="img-responsive" key={datas.idEvent} src={datas.event_image} ></img>	)}
 		  						<div className="row socialbtn">
                                     <div className="col-sm-5">
 									<Link to={{ pathname:`/messages/`}}>
@@ -131,7 +141,7 @@ export default class Event_Details extends Component {
 								</div>
 						</div>
 
-						         
+						          {this.state.redirect && (<Redirect to={'/login'}/>)}
 		  			</div>
 		  		</div>
 			 </form>

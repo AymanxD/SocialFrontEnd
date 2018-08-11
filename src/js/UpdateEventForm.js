@@ -20,8 +20,7 @@ export default class CE extends Component{
 
 	handleSubmit = (event) => {
 		event.preventDefault()
-		
-		fetch('https://socialbackendweb.herokuapp.com/event/updateform', {
+		fetch('http://localhost:3001/event/updateform', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -38,6 +37,7 @@ export default class CE extends Component{
 				ephoto: event.target.elements.eventimage.value,
 				ecategory: event.target.elements.eventcategory.value,
 				enumber: event.target.elements.eventnumber.value,
+				eventid: this.props.location.state.eventID,
             }),
         })
             .then(response => response.json())
@@ -45,19 +45,20 @@ export default class CE extends Component{
             .catch((error) => {
                 console.error(error);
             });
-            window.location.reload(true);
+           // window.location.reload(true);
     }
     
     componentDidMount(){
-		fetch('http://localhost:3001/event/viewform')
-			.then(response => response.json())
-			.then(jsondata => {
-				this.setState({jsondata});
-				//console.log(this.state.jsondata);
-			})
-			.catch((error) => {
-				console.error(error);
-			})
+		const { eventID } = this.props.location.state;
+		fetch(`http://localhost:3001/events/view/${eventID}`)
+            .then(response => response.json())
+            .then(jsondata => {
+                this.setState({jsondata});
+                //
+            })
+            .catch((error) => {
+                console.error(error);
+            })
 	 }
 
 	
